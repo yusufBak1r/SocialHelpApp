@@ -20,7 +20,8 @@ class ViewController: UIViewController {
    
     @IBAction func loginButtom(_ sender: Any) {
         
-      performSegue(withIdentifier: "toHome", sender: nil)
+        
+     
         
     }
 
@@ -30,6 +31,8 @@ class ViewController: UIViewController {
                     print("1. segmented tıklanıldı")
                 case 1 :
                    performSegue(withIdentifier: "toSignin", sender: nil)
+                case 2:
+                    performSegue(withIdentifier: "toStudentSign", sender: nil)
                    
                 default:
                     break

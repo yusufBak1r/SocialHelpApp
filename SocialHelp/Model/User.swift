@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class User {
+class User :Identifiable ,Codable{
+    var uuid = UUID().uuidString
     var email:String?
     var password:String?
     init(email:String,password:String){

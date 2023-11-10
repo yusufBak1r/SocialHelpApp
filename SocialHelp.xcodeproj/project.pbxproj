@@ -16,6 +16,10 @@
 		F05D56542AF8EE1B00EAB0E1 /* SocialHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D56532AF8EE1B00EAB0E1 /* SocialHelpTests.swift */; };
 		F05D565E2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D565D2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift */; };
 		F05D56602AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D565F2AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift */; };
+		F0C0DC892AFCE36300857C5A /* StudentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC882AFCE36300857C5A /* StudentUser.swift */; };
+		F0C0DC8B2AFCE42D00857C5A /* ScholarshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */; };
+		F0D41A7B2AFD104C002E1BF5 /* StudentSignİnCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */; };
+		F0D41A802AFD16DE002E1BF5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */; };
 		F0E1D5712AFAA552006C5329 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5702AFAA552006C5329 /* HomeVC.swift */; };
 		F0E1D5732AFAA5B4006C5329 /* DonationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */; };
 		F0E1D5782AFBC03B006C5329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5772AFBC03B006C5329 /* User.swift */; };
@@ -60,6 +64,10 @@
 		F05D56592AF8EE1B00EAB0E1 /* SocialHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D565D2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialHelpUITests.swift; sourceTree = "<group>"; };
 		F05D565F2AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialHelpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F0C0DC882AFCE36300857C5A /* StudentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUser.swift; sourceTree = "<group>"; };
+		F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarshipModel.swift; sourceTree = "<group>"; };
+		F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentSignİnCv.swift"; sourceTree = "<group>"; };
+		F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		F0E1D5702AFAA552006C5329 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationVC.swift; sourceTree = "<group>"; };
 		F0E1D5772AFBC03B006C5329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -122,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				F0E1D57C2AFBC2F0006C5329 /* ViewController */,
-				F0E1D5792AFBC225006C5329 /* Extantion */,
+				F0E1D5792AFBC225006C5329 /* Extention */,
 				F0E1D5752AFAAA4B006C5329 /* NetworkManager */,
 				F0E1D5742AFAAA3F006C5329 /* Model */,
 				F05D563C2AF8EE1800EAB0E1 /* AppDelegate.swift */,
@@ -153,10 +161,20 @@
 			path = SocialHelpUITests;
 			sourceTree = "<group>";
 		};
+		F0D41A7E2AFD156F002E1BF5 /* StudentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */,
+			);
+			path = StudentViewController;
+			sourceTree = "<group>";
+		};
 		F0E1D5742AFAAA3F006C5329 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F0E1D5772AFBC03B006C5329 /* User.swift */,
+				F0C0DC882AFCE36300857C5A /* StudentUser.swift */,
+				F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,19 +187,21 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
-		F0E1D5792AFBC225006C5329 /* Extantion */ = {
+		F0E1D5792AFBC225006C5329 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
 				F0E1D57A2AFBC24E006C5329 /* AlertExtantion.swift */,
 			);
-			path = Extantion;
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		F0E1D57C2AFBC2F0006C5329 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F0D41A7E2AFD156F002E1BF5 /* StudentViewController */,
 				F05D56402AF8EE1800EAB0E1 /* LoginVC.swift */,
 				F0E1D58A2AFBDBE4006C5329 /* SignİnVC.swift */,
+				F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */,
 				F0E1D5702AFAA552006C5329 /* HomeVC.swift */,
 				F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */,
 			);
@@ -329,6 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D41A7B2AFD104C002E1BF5 /* StudentSignİnCv.swift in Sources */,
+				F0C0DC892AFCE36300857C5A /* StudentUser.swift in Sources */,
 				F0E1D5892AFBC89B006C5329 /* FirebaseAuth.swift in Sources */,
 				F05D56412AF8EE1800EAB0E1 /* LoginVC.swift in Sources */,
 				F0E1D5732AFAA5B4006C5329 /* DonationVC.swift in Sources */,
@@ -336,8 +358,10 @@
 				F0E1D58B2AFBDBE4006C5329 /* SignİnVC.swift in Sources */,
 				F0E1D5782AFBC03B006C5329 /* User.swift in Sources */,
 				F0E1D5712AFAA552006C5329 /* HomeVC.swift in Sources */,
+				F0C0DC8B2AFCE42D00857C5A /* ScholarshipModel.swift in Sources */,
 				F05D563D2AF8EE1800EAB0E1 /* AppDelegate.swift in Sources */,
 				F05D563F2AF8EE1800EAB0E1 /* SceneDelegate.swift in Sources */,
+				F0D41A802AFD16DE002E1BF5 /* SettingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
