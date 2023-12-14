@@ -7,7 +7,8 @@
 
 import UIKit
 
-class DonationVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class DonationVC: UIViewController,UITableViewDelegate,UITableViewDataSource,DonationCellButtomProtocol{
+   
     var list :[Donation] = Donation.listFoundation
    
   
@@ -15,15 +16,24 @@ class DonationVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundImage(imageName: "back.jpeg")
         
         tableview.dataSource = self
         
         tableview.delegate = self
         
         // Do any additional setup after loading the view.
-       
+
         
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         list.count
     }
@@ -33,24 +43,24 @@ class DonationVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         cell.Fname.text = list[indexPath.row].foundationName
         cell.Fcontex.text = list[indexPath.row].Statement
         cell.Fımage.image = UIImage(named: list[indexPath.row].ImageName)
-        cell.urlString = list[indexPath.row].url
-        cell.buttom.tag = indexPath.row
-        cell.buttom.addTarget(self, action: #selector(ButtomAction(_:)), for: .touchUpInside)
+        cell.cellProtocol  = self
+        cell.indexPath = indexPath
+        
+        
 
         return cell
         
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _  = list[indexPath.row].url
+   
+    func toButtom(indexPath: IndexPath) {
+        let url =  list[indexPath.row].url
         
-       
+         if let urlString = URL(string: url) {
+             UIApplication.shared.open(urlString)
+         }
     }
     
-    @objc func ButtomAction(_ sender: UIButton) {
-        // Butona tıklandığında yapılacak işlemleri burada yazın
-        print("Button tapped")
-    }
-
+   
     
 
 }

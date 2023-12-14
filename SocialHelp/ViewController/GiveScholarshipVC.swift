@@ -1,13 +1,13 @@
 //
-//  SigninVC.swift
+//  HomeVC.swift
 //  SocialHelp
 //
-//  Created by yusuf bakır on 8.11.2023.
+//  Created by yusuf bakır on 7.11.2023.
 //
 
 import UIKit
 
-class SigninVC: UIViewController {
+class GiveScholarship: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,5 +16,6 @@ class SigninVC: UIViewController {
     }
     
 
-  
+   
+
 }
