@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol DonationCellButtomProtocol  {
+    func toButtom (indexPath : IndexPath)
+}
 class DonationCell: UITableViewCell {
 
     @IBOutlet var Fname: UILabel!
@@ -15,6 +17,14 @@ class DonationCell: UITableViewCell {
     var urlString = ""
     @IBOutlet var buttom: UIButton!
     @IBOutlet var Fcontex: UITextView!
+    
+    var cellProtocol :DonationCellButtomProtocol?
+    var indexPath : IndexPath?
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,8 +43,12 @@ class DonationCell: UITableViewCell {
 
 
 
-
-
+    @IBAction func ButtonUrl(_ sender: Any) {
+        cellProtocol?.toButtom(indexPath: self.indexPath!)
+        
+    }
+    
+ 
 
     
     

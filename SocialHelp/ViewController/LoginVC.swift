@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
        
-        
+        setBackgroundImage(imageName: "back.jpeg")
     }
     
     @IBAction func loginButtom(_ sender: Any) {
@@ -29,15 +29,16 @@ class ViewController: UIViewController {
     
     @IBAction func segmentedAction(_ sender: Any) {
         
+        if (sender as AnyObject).selectedSegmentIndex == 0 {
+            print ("ilk segmented açıldı ")
+    }
+        if (sender as AnyObject).selectedSegmentIndex == 1 {
+         print("ikinci segment açıldı ")
+            performSegue(withIdentifier: "toSignin", sender: nil)
+               
+        }
         
     }
     
-    
-    //
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //    if segue.identifier == "toSiparisDetayi"{
-    //        let destVC = segue.destination as! SiparisIzlemeVC
-    //        destVC.gelenSiparis = gelenSiparis
-    //    }
-    
+  
 }

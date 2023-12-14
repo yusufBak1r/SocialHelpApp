@@ -19,11 +19,13 @@
 		F05D565E2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D565D2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift */; };
 		F05D56602AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D565F2AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift */; };
 		F07988092B2859FA00A6FC2E /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07988082B2859FA00A6FC2E /* Donation.swift */; };
+		F0A8E8F92B2B79CA007DE877 /* ScholarshipRGVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E8F82B2B79CA007DE877 /* ScholarshipRGVC.swift */; };
+		F0A8E8FC2B2B79EC007DE877 /* CustomTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E8FB2B2B79EC007DE877 /* CustomTabbarViewController.swift */; };
+		F0A8E8FE2B2B79F4007DE877 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E8FD2B2B79F4007DE877 /* TabbarView.swift */; };
 		F0C0DC892AFCE36300857C5A /* StudentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC882AFCE36300857C5A /* StudentUser.swift */; };
 		F0C0DC8B2AFCE42D00857C5A /* ScholarshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */; };
-		F0D41A7B2AFD104C002E1BF5 /* StudentSignİnCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */; };
 		F0D41A802AFD16DE002E1BF5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */; };
-		F0E1D5712AFAA552006C5329 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5702AFAA552006C5329 /* HomeVC.swift */; };
+		F0E1D5712AFAA552006C5329 /* GiveScholarshipVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5702AFAA552006C5329 /* GiveScholarshipVC.swift */; };
 		F0E1D5732AFAA5B4006C5329 /* DonationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */; };
 		F0E1D5782AFBC03B006C5329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D5772AFBC03B006C5329 /* User.swift */; };
 		F0E1D57B2AFBC24E006C5329 /* AlertExtantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D57A2AFBC24E006C5329 /* AlertExtantion.swift */; };
@@ -66,11 +68,13 @@
 		F05D565D2AF8EE1B00EAB0E1 /* SocialHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialHelpUITests.swift; sourceTree = "<group>"; };
 		F05D565F2AF8EE1B00EAB0E1 /* SocialHelpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialHelpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F07988082B2859FA00A6FC2E /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		F0A8E8F82B2B79CA007DE877 /* ScholarshipRGVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScholarshipRGVC.swift; sourceTree = "<group>"; };
+		F0A8E8FB2B2B79EC007DE877 /* CustomTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabbarViewController.swift; sourceTree = "<group>"; };
+		F0A8E8FD2B2B79F4007DE877 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		F0C0DC882AFCE36300857C5A /* StudentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUser.swift; sourceTree = "<group>"; };
 		F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarshipModel.swift; sourceTree = "<group>"; };
-		F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StudentSignİnCv.swift"; sourceTree = "<group>"; };
 		F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
-		F0E1D5702AFAA552006C5329 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		F0E1D5702AFAA552006C5329 /* GiveScholarshipVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveScholarshipVC.swift; sourceTree = "<group>"; };
 		F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationVC.swift; sourceTree = "<group>"; };
 		F0E1D5772AFBC03B006C5329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F0E1D57A2AFBC24E006C5329 /* AlertExtantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtantion.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			children = (
 				F05D563C2AF8EE1800EAB0E1 /* AppDelegate.swift */,
 				F05D563E2AF8EE1800EAB0E1 /* SceneDelegate.swift */,
+				F0A8E8FA2B2B79D7007DE877 /* TabBar */,
 				F0E5FC802B12DB1100E1F236 /* TableviewCell */,
 				F0E5FC7F2B12DB0300E1F236 /* Constants */,
 				F0E1D57C2AFBC2F0006C5329 /* ViewController */,
@@ -161,12 +166,13 @@
 			path = SocialHelpUITests;
 			sourceTree = "<group>";
 		};
-		F0D41A7E2AFD156F002E1BF5 /* StudentViewController */ = {
+		F0A8E8FA2B2B79D7007DE877 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				F0D41A7A2AFD104C002E1BF5 /* StudentSignİnCv.swift */,
+				F0A8E8FB2B2B79EC007DE877 /* CustomTabbarViewController.swift */,
+				F0A8E8FD2B2B79F4007DE877 /* TabbarView.swift */,
 			);
-			path = StudentViewController;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		F0E1D5742AFAAA3F006C5329 /* Model */ = {
@@ -199,12 +205,12 @@
 		F0E1D57C2AFBC2F0006C5329 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F0D41A7E2AFD156F002E1BF5 /* StudentViewController */,
 				F05D56402AF8EE1800EAB0E1 /* LoginVC.swift */,
 				F0E1D58A2AFBDBE4006C5329 /* SignİnVC.swift */,
 				F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */,
-				F0E1D5702AFAA552006C5329 /* HomeVC.swift */,
+				F0E1D5702AFAA552006C5329 /* GiveScholarshipVC.swift */,
 				F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */,
+				F0A8E8F82B2B79CA007DE877 /* ScholarshipRGVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -361,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0D41A7B2AFD104C002E1BF5 /* StudentSignİnCv.swift in Sources */,
+				F0A8E8FE2B2B79F4007DE877 /* TabbarView.swift in Sources */,
 				F0C0DC892AFCE36300857C5A /* StudentUser.swift in Sources */,
 				F05D56412AF8EE1800EAB0E1 /* LoginVC.swift in Sources */,
 				F0E5FC822B12DBD600E1F236 /* DonationCell.swift in Sources */,
@@ -371,11 +377,13 @@
 				F0E1D57B2AFBC24E006C5329 /* AlertExtantion.swift in Sources */,
 				F0E1D58B2AFBDBE4006C5329 /* SignİnVC.swift in Sources */,
 				F0E1D5782AFBC03B006C5329 /* User.swift in Sources */,
-				F0E1D5712AFAA552006C5329 /* HomeVC.swift in Sources */,
+				F0E1D5712AFAA552006C5329 /* GiveScholarshipVC.swift in Sources */,
 				F03D50A72B17D2840005646C /* APIwebService.swift in Sources */,
 				F0C0DC8B2AFCE42D00857C5A /* ScholarshipModel.swift in Sources */,
 				F05D563D2AF8EE1800EAB0E1 /* AppDelegate.swift in Sources */,
+				F0A8E8FC2B2B79EC007DE877 /* CustomTabbarViewController.swift in Sources */,
 				F05D563F2AF8EE1800EAB0E1 /* SceneDelegate.swift in Sources */,
+				F0A8E8F92B2B79CA007DE877 /* ScholarshipRGVC.swift in Sources */,
 				F0D41A802AFD16DE002E1BF5 /* SettingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
