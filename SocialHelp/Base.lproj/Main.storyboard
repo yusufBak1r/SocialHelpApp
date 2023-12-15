@@ -192,6 +192,18 @@
                     <view key="view" contentMode="scaleToFill" id="yxI-uY-bxA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-84-P2H">
+                                <rect key="frame" x="159" y="333" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="LoadingPdf:" destination="v7a-zH-DWs" eventType="touchUpInside" id="eDk-y4-LCx"/>
+                                    <action selector="toPdf:" destination="z0c-UD-KxC" eventType="touchUpInside" id="WeC-Gq-RYN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Hg2-nB-ez1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -240,7 +252,9 @@
                                                             <rect key="frame" x="10" y="10" width="333" height="144"/>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="333" id="aVJ-7E-X4T"/>
                                                                 <constraint firstAttribute="height" constant="144" id="lqN-pS-C4d"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="xNn-1q-jjR"/>
                                                                 <constraint firstAttribute="width" constant="333" id="xcJ-pM-FrF"/>
                                                             </constraints>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -263,11 +277,15 @@
                                                         <constraint firstAttribute="width" constant="353" id="6Mm-xC-HkJ"/>
                                                         <constraint firstAttribute="height" constant="204" id="ER0-zj-F4V"/>
                                                         <constraint firstItem="xnv-n8-Xtt" firstAttribute="leading" secondItem="qtj-7q-3D2" secondAttribute="leading" constant="10" id="aSZ-G5-5Ta"/>
+                                                        <constraint firstItem="5Hb-LT-z8T" firstAttribute="leading" secondItem="qtj-7q-3D2" secondAttribute="leading" constant="10" id="aWk-3v-jbT"/>
+                                                        <constraint firstItem="xnv-n8-Xtt" firstAttribute="top" secondItem="5Hb-LT-z8T" secondAttribute="bottom" constant="10" id="fuB-4I-fUd"/>
                                                         <constraint firstAttribute="trailing" secondItem="xnv-n8-Xtt" secondAttribute="trailing" constant="10" id="ghx-i8-0Wr"/>
                                                         <constraint firstAttribute="trailing" secondItem="5Hb-LT-z8T" secondAttribute="trailing" constant="10" id="iPu-7A-TOq"/>
                                                         <constraint firstItem="5Hb-LT-z8T" firstAttribute="top" secondItem="qtj-7q-3D2" secondAttribute="top" constant="10" id="iah-zk-dIf"/>
+                                                        <constraint firstItem="5Hb-LT-z8T" firstAttribute="top" secondItem="qtj-7q-3D2" secondAttribute="top" constant="10" id="jhj-Tt-UMd"/>
                                                         <constraint firstAttribute="bottom" secondItem="xnv-n8-Xtt" secondAttribute="bottom" constant="5" id="jvo-ps-S5b"/>
                                                         <constraint firstItem="5Hb-LT-z8T" firstAttribute="leading" secondItem="qtj-7q-3D2" secondAttribute="leading" constant="10" id="qA7-tF-GQb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5Hb-LT-z8T" secondAttribute="trailing" constant="10" id="shi-d7-YTu"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -324,8 +342,9 @@
                     <tabBarItem key="tabBarItem" title="Burs" image="figure.2.and.child.holdinghands" catalog="system" id="D6g-a2-G4g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhm-4K-8LA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="z0c-UD-KxC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2008" y="-358"/>
+            <point key="canvasLocation" x="-2008.3969465648854" y="-358.45070422535213"/>
         </scene>
         <!--Custom Tabbar View Controller-->
         <scene sceneID="wJa-C2-aiX">

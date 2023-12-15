@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01B7E2F2B2C754900ED9A1C /* PdfTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B7E2E2B2C754900ED9A1C /* PdfTransactionsModel.swift */; };
 		F03D50A72B17D2840005646C /* APIwebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D50A62B17D2840005646C /* APIwebService.swift */; };
 		F03D50A92B17D4200005646C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03D50A82B17D4200005646C /* Constants.swift */; };
 		F05D563D2AF8EE1800EAB0E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D563C2AF8EE1800EAB0E1 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F01B7E2E2B2C754900ED9A1C /* PdfTransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfTransactionsModel.swift; sourceTree = "<group>"; };
 		F03D50A62B17D2840005646C /* APIwebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIwebService.swift; sourceTree = "<group>"; };
 		F03D50A82B17D4200005646C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F05D56392AF8EE1800EAB0E1 /* SocialHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F01B7E2D2B2C74EA00ED9A1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F01B7E2E2B2C754900ED9A1C /* PdfTransactionsModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F05D56302AF8EE1800EAB0E1 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 			children = (
 				F05D563C2AF8EE1800EAB0E1 /* AppDelegate.swift */,
 				F05D563E2AF8EE1800EAB0E1 /* SceneDelegate.swift */,
+				F01B7E2D2B2C74EA00ED9A1C /* ViewModel */,
 				F0A8E8FA2B2B79D7007DE877 /* TabBar */,
 				F0E5FC802B12DB1100E1F236 /* TableviewCell */,
 				F0E5FC7F2B12DB0300E1F236 /* Constants */,
@@ -178,10 +189,10 @@
 		F0E1D5742AFAAA3F006C5329 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F07988082B2859FA00A6FC2E /* Donation.swift */,
 				F0E1D5772AFBC03B006C5329 /* User.swift */,
 				F0C0DC882AFCE36300857C5A /* StudentUser.swift */,
 				F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */,
+				F07988082B2859FA00A6FC2E /* Donation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +382,7 @@
 				F0C0DC892AFCE36300857C5A /* StudentUser.swift in Sources */,
 				F05D56412AF8EE1800EAB0E1 /* LoginVC.swift in Sources */,
 				F0E5FC822B12DBD600E1F236 /* DonationCell.swift in Sources */,
+				F01B7E2F2B2C754900ED9A1C /* PdfTransactionsModel.swift in Sources */,
 				F0E1D5732AFAA5B4006C5329 /* DonationVC.swift in Sources */,
 				F07988092B2859FA00A6FC2E /* Donation.swift in Sources */,
 				F03D50A92B17D4200005646C /* Constants.swift in Sources */,
