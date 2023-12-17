@@ -6,14 +6,17 @@
 //
 
 import Foundation
-class User :Identifiable ,Codable{
-    var uuid = UUID().uuidString
-    var email:String?
-    var password:String?
-    init(email:String,password:String){
+protocol  UserProtocol {
+    var user : User { get set }
+}
+struct User :Codable{
+    var email: String
+    var phone :String
+    var password: String
+    init(email: String, password: String,phohe:String) {
         self.email = email
         self.password = password
+        self.phone = phohe
     }
     
 }
-

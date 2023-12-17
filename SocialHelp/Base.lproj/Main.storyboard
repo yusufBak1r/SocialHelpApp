@@ -190,28 +190,82 @@
             <objects>
                 <viewController title="scholarship registration" id="v7a-zH-DWs" customClass="ScholarshipRegistration" customModule="SocialHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxI-uY-bxA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-84-P2H">
-                                <rect key="frame" x="159" y="333" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="LoadingPdf:" destination="v7a-zH-DWs" eventType="touchUpInside" id="eDk-y4-LCx"/>
-                                    <action selector="toPdf:" destination="z0c-UD-KxC" eventType="touchUpInside" id="WeC-Gq-RYN"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6w-Fi-gn7">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="951"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8X-dU-g9s">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ge2-h6-UXb">
+                                                <rect key="frame" x="44" y="458" width="234" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="GWo-oX-bhP">
+                                                <rect key="frame" x="26" y="151" width="116" height="98"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNJ-xl-Wad">
+                                                <rect key="frame" x="181" y="150" width="180" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soyad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-jr-iDY">
+                                                <rect key="frame" x="77" y="372" width="180" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soyad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOC-45-te1">
+                                                <rect key="frame" x="181" y="215" width="180" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzC-MU-Lp1">
+                                                <rect key="frame" x="130" y="561" width="75" height="99"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="pdfsec:" destination="v7a-zH-DWs" eventType="touchUpInside" id="wZF-7a-xAP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="GO4-Wf-puO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="X8X-dU-g9s" firstAttribute="centerX" secondItem="I6w-Fi-gn7" secondAttribute="centerX" id="6hk-Kw-slX"/>
+                                    <constraint firstItem="X8X-dU-g9s" firstAttribute="top" secondItem="I6w-Fi-gn7" secondAttribute="top" id="Epd-bX-ujH"/>
+                                    <constraint firstAttribute="bottom" secondItem="X8X-dU-g9s" secondAttribute="bottom" id="YNR-jx-mV6"/>
+                                    <constraint firstAttribute="trailing" secondItem="X8X-dU-g9s" secondAttribute="trailing" id="ZkT-ke-nd8"/>
+                                    <constraint firstItem="X8X-dU-g9s" firstAttribute="leading" secondItem="I6w-Fi-gn7" secondAttribute="leading" id="kmQ-Wr-Vs7"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hg2-nB-ez1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="I6w-Fi-gn7" firstAttribute="top" secondItem="Hg2-nB-ez1" secondAttribute="top" id="2he-Xd-Egx"/>
+                            <constraint firstItem="Hg2-nB-ez1" firstAttribute="trailing" secondItem="I6w-Fi-gn7" secondAttribute="trailing" id="LVI-zL-vMw"/>
+                            <constraint firstItem="Hg2-nB-ez1" firstAttribute="bottom" secondItem="I6w-Fi-gn7" secondAttribute="bottom" id="abh-8Q-RA9"/>
+                            <constraint firstItem="I6w-Fi-gn7" firstAttribute="leading" secondItem="Hg2-nB-ez1" secondAttribute="leading" id="xiV-yc-RND"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Burs Kayıt" image="person.circle.fill" catalog="system" id="IGN-mY-ryh"/>
+                    <size key="freeformSize" width="393" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feA-Fq-EbX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3225.1908396946565" y="160.56338028169014"/>
+            <point key="canvasLocation" x="-3228.2442748091603" y="167.6056338028169"/>
         </scene>
         <!--Bağış-->
         <scene sceneID="AsQ-76-vHi">
@@ -342,7 +396,6 @@
                     <tabBarItem key="tabBarItem" title="Burs" image="figure.2.and.child.holdinghands" catalog="system" id="D6g-a2-G4g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhm-4K-8LA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="z0c-UD-KxC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2008.3969465648854" y="-358.45070422535213"/>
         </scene>

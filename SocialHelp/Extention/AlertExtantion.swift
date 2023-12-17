@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 extension UIViewController{
+    
     func addAlert(title: String, message: String) -> UIAlertController{
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okeyAction = UIAlertAction(title: "OK", style: .default)
@@ -26,6 +27,6 @@ extension UIViewController{
             view.insertSubview(backgroundImage, at: 0)
         }
     
-    
+
 }
 

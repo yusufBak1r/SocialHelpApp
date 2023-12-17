@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// pickDocument()
 class ScholarshipRegistration: UIViewController {
 
     override func viewDidLoad() {
@@ -16,16 +16,12 @@ class ScholarshipRegistration: UIViewController {
        
     }
     
-
-   
     
-    
-   
-    @IBAction func LoadingPdf(_ sender: Any) {
-      pickDocument()
-      
+    @IBAction func pdfsec(_ sender: Any) {
+        pickDocument()
     }
     
+   
 
 }
 extension ScholarshipRegistration :UIDocumentPickerDelegate{
