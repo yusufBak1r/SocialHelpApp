@@ -6,17 +6,18 @@
 //
 
 import Foundation
-class Scholarship:StudentUser{
-    var student:StudentUser
-    var transcriptURL :String?
-    var description :String?
-    var department:String?
+// burs eklemek için Post -- Get -- Update 
+struct Scholarship{
+    let id :Int
+    let name:String
+    let description:String
+    let amount : Int
+    let applicationDate : String
+    let person : Person
+    let student:Student
+    let full :Bool
     
-    init(student: StudentUser, transcriptURL: String? = nil, description: String? = nil, department: String? = nil) {
-        self.student = student
-        self.transcriptURL = transcriptURL
-        self.description = description
-        self.department = department
-    }
+
     
+   
 }

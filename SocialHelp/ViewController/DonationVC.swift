@@ -11,7 +11,7 @@ class DonationVC: UIViewController,UITableViewDelegate,UITableViewDataSource,Don
    
     var list :[Donation] = Donation.listFoundation
    
-  
+    
     @IBOutlet weak var tableview: UITableView!
 
     override func viewDidLoad() {
