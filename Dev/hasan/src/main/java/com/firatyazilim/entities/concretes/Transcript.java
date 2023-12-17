@@ -36,7 +36,7 @@ public class Transcript {
 	 private String term;
 	 
 	 @Column(name="transcript_pdf")
+	 //private String transcriptPdf;
 	 private byte[] transcriptPdf;
-	 
 	 
 }  

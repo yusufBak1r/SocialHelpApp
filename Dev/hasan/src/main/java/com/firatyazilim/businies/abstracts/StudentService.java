@@ -10,8 +10,16 @@ import com.firatyazilim.entities.concretes.Student;
 import com.firatyazilim.entities.concretes.Transcript;
 
 public interface StudentService extends UserService<Student>{
-	DataResult<List<Transcript>> addTranscript(Transcript transcript);
+	//ekleme listeleme getirme eklendi 
+	//
+	DataResult<Transcript> addTranscript(int studentId,String term,byte[] pdf);
+	
+	
+	
+	//DataResult<List<Transcript>> addTranscript(Transcript transcript);
 	//Result applyScholarsip(int studentId,int scholarshipId);
-	DataResult<Application> createApplication(Student student, Schoolarship scholarship);
-	Student findById(int studentId);
+	DataResult<Application> createApplication(int studentId, int scholarshipId);
+	DataResult<Student> findById(int studentId);
+	DataResult<Student> deleteById(int transcriptId);
+
 }

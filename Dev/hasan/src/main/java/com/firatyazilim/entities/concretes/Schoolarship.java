@@ -39,12 +39,19 @@ public class Schoolarship {
 	@Column(name = "amount")
 	private long amount;
 	
+	@Column(name="isFull")
+	private boolean isFull;
+	 
 	@Column(name = "applicaionDate")
 	private LocalDate applicaionDate;
 	@OneToMany(mappedBy = "schoolarship")
 	private List<Application> applications;
-	 
-	  @ManyToOne
-	    @JoinColumn(name = "person_id")
-	    private Person person; 
+	
+	@ManyToOne
+	@JoinColumn(name = "person_id")
+	private Person person; 
+	
+	@ManyToOne
+	@JoinColumn(name = "student_id")
+	private Student student;
 }

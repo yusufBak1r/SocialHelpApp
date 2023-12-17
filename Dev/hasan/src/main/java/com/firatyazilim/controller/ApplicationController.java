@@ -7,19 +7,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.firatyazilim.businies.abstracts.ScholarshipAppService;
+import com.firatyazilim.businies.abstracts.ApplicationService;
 import com.firatyazilim.core.utilities.result.DataResult;
-import com.firatyazilim.entities.concretes.ScholarshipApp;
+import com.firatyazilim.entities.concretes.Application;
+
+
 @RestController
-@RequestMapping("api/scholarshipApp/")
-public class ScholarshipAppController {
+@RequestMapping("api/application")
+public class ApplicationController {
 	@Autowired
-	private ScholarshipAppService service;
-	public ScholarshipAppController(ScholarshipAppService service) {
+	private ApplicationService service;
+	
+	 public ApplicationController(ApplicationService service) {
 		this.service=service;
 	}
-	@GetMapping("/getAll")
-	public DataResult<List<ScholarshipApp>> getAll(){
+	
+	@GetMapping("/getall")
+	public DataResult<List<Application>> getAll(){
 		return this.service.getAll();
 	}
 }

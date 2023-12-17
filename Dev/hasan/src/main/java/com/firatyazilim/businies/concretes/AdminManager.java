@@ -13,6 +13,7 @@ import com.firatyazilim.dataAccess.abstracts.AdminRepository;
 import com.firatyazilim.entities.concretes.Admin;
 import com.firatyazilim.entities.concretes.Person;
 
+
 @Service
 public class AdminManager implements AdminService{
 @Autowired
@@ -28,24 +29,17 @@ public AdminManager(AdminRepository repository) {
 
 @Override
 public DataResult<List<Admin>> getAll() {
-	
 	return new SuccessDataResult<List<Admin>>(this.repository.findAll(),"Listelendi");
+
 }
 
 
 @Override
 public DataResult<Admin> login(String email, String password) {
 	Admin admin=repository.findByEmail(email);
-	if(admin==null) {
-		return new ErrorDataResult<Person>("Email bulunamadı");
-	}
-	else if (admin.getPassword().equals(password)) {
-		return new SuccessDataResult<Person>("Giriş başarılı");
-
-	}
-	else {
-		return new ErrorDataResult<Person>("Şifre yanlış");
-	}
+	if(admin==null) return new ErrorDataResult<Person>("Email bulunamadı");
+	else if (admin.getPassword().equals(password)) return new SuccessDataResult<Admin>(this.repository.getById(admin.getId()),"Giriş başarılı");
+	else 	return new ErrorDataResult<Admin>("Şifre yanlış");
 }
 
 
@@ -81,6 +75,48 @@ public DataResult<Admin> signUp(Admin user) {
 		}return new SuccessDataResult<Admin>(this.repository.save(user),"eklendi");
 		}	
 		
+}
+
+
+
+
+@Override
+public DataResult<Admin> updateUser(Admin user) {
+	Admin admin=this.repository.getById(user.getId());
+	if(admin==null) {
+		return new ErrorDataResult<Admin >("admin bulunamadı");
+	}
+	else {
+		return new SuccessDataResult<Admin>(this.repository.save(user),"Güncellendi");
+}
+}
+
+
+
+@Override
+public DataResult<Admin> updatePassword(String password, int id) {
+	Admin admin=this.repository.getById(id);
+	if(admin==null) return new ErrorDataResult<Admin>("bulunamadı");
+	else {
+		if(password.length()<6) 
+		 return new ErrorDataResult<Admin>("Şifre çok kısa");
+			else {
+				admin.setPassword(password);
+				return new SuccessDataResult<Admin>(this.repository.save(admin),"Şifre değiştirildi");
+			}
+
+		
+	}
+}
+
+
+
+
+@Override
+public DataResult<Admin> findById(int adminId) {
+	Admin admin=this.repository.getById(adminId);
+	return (admin==null) ? new ErrorDataResult<Admin>("bulunamadı") :
+	new SuccessDataResult<Admin>(this.repository.getById(adminId),"Admin getirildi");
 }
 }
 		

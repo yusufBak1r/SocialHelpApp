@@ -1,5 +1,6 @@
 package com.firatyazilim.entities.concretes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -35,8 +36,15 @@ public class Person extends User{
   @Column(name = "surname")	
   private String surname;
   
+  @Column(name="birth_of_date_year")
+  private int birthOfDateYear;
+  
+  @Column(name="identity_number")
+  private String identityNumber;
+  
   @Column(name = "job")	
   private String job;
+  
   @OneToMany(mappedBy = "person")
   private List<Schoolarship> schoolarships;
  

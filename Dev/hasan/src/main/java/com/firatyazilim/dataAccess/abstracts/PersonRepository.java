@@ -7,5 +7,6 @@ import com.firatyazilim.entities.concretes.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Integer>{
 	Person findByEmail(String email);
+	Person getById(int id);
 	
 }

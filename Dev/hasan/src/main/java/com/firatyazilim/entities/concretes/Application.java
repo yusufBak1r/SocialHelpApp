@@ -24,7 +24,7 @@ public class Application {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-	
+	  
 	 @ManyToOne
 	 @JoinColumn(name = "student_id")
 	 private Student student;
@@ -32,7 +32,9 @@ public class Application {
 	 @ManyToOne
 	 @JoinColumn(name = "scholarship_id")
 	 private Schoolarship schoolarship;
-	 
+	  
 	 @Column(name = "is_aproved")
-	 private boolean isAproved;
+	 private boolean isAproved=false; 
+	 
+	 
 }

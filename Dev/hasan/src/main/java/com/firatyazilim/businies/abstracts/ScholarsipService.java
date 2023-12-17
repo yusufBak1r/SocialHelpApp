@@ -9,4 +9,5 @@ public interface ScholarsipService {
     DataResult<Schoolarship> addScholarship(Schoolarship scholarship);
     DataResult<List<Schoolarship>> getAll();
     Schoolarship findById(int scholarshipId);
-}
+    List<Schoolarship> SchoolarshipsByPersonId(int personId);}
+    

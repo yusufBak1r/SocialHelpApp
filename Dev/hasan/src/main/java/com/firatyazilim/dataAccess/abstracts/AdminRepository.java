@@ -7,4 +7,5 @@ import com.firatyazilim.entities.concretes.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Integer> {
 	Admin findByEmail(String email);
+	Admin getById(int id);
 }

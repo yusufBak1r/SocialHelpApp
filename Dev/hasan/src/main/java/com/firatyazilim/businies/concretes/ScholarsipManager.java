@@ -5,24 +5,29 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.firatyazilim.businies.abstracts.PersonService;
 import com.firatyazilim.businies.abstracts.ScholarsipService;
 import com.firatyazilim.core.utilities.result.DataResult;
 import com.firatyazilim.core.utilities.result.ErrorDataResult;
 import com.firatyazilim.core.utilities.result.SuccessDataResult;
+import com.firatyazilim.dataAccess.abstracts.PersonRepository;
 import com.firatyazilim.dataAccess.abstracts.SchoolarshipRepository;
+import com.firatyazilim.entities.concretes.Person;
 import com.firatyazilim.entities.concretes.Schoolarship;
 
 @Service
 public class ScholarsipManager implements ScholarsipService{
 @Autowired	
 private SchoolarshipRepository repository;
-	public ScholarsipManager(SchoolarshipRepository repository) {
+@Autowired PersonRepository personRepository;
+	public ScholarsipManager(SchoolarshipRepository repository,PersonRepository personRepository) {
 	this.repository=repository;
+	this.personRepository=personRepository;
 	}
 	@Override
 	public DataResult<Schoolarship> addScholarship(Schoolarship scholarship) {
 		if(scholarship.getAmount()==0 && scholarship.getApplicaionDate()==null &&
-				scholarship.getDescription()==null &&scholarship.getName()==null) {
+				scholarship.getDescription()==null && scholarship.getName()==null && scholarship.getPerson()==null) {
 			return new ErrorDataResult<Schoolarship>("Lütfen tüm alanları eksiksiz doldurun");
 			
 		}
@@ -48,5 +53,14 @@ private SchoolarshipRepository repository;
 		return this.repository.findById(scholarshipId).orElse(null);
 		
 	}
+	@Override
+	public List<Schoolarship> SchoolarshipsByPersonId(int personId) {
+		
+	return this.repository.findByPerson_Id(personId);
+	
+		
+	}
+	
+	
 	
 }
