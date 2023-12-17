@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Application {
+struct Application :Codable{
     var Student :Int
     var Schoolarship:Int
     var isAproved : Bool

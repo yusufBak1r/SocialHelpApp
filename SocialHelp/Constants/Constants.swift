@@ -10,7 +10,7 @@ class Constants {
     
     
     
-    enum CodinKey :String, CodingKey {
+    enum Url :String, CodingKey {
         case BaseUrl = "eaaae"
         case StudentBase = "aeaeae"
         case UserUrl = "ae"

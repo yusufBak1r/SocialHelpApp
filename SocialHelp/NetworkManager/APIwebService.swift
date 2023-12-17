@@ -7,105 +7,30 @@
 
 import Foundation
 import Alamofire
-
-class APIwebService {
-    
-    
-    static let webservice = APIwebService()
-//    func TranscriptFetch (transcript : TranskriptModel) {
-//        let parameters : [String:Any] = [
-//            "email":Model?.email ?? "",
-//            "password":Model?.password ?? "",
-//            "TCno" :Model?.TCno ?? ""
-// 
-//        ]
-//        AF.request("url", method: .post, parameters: parameters).response { response in
-//            if let data = response.data{
-//                do {
-//                    let cevap = try JSONDecoder().decode(Answer.self, from: data)
-//                    print("login işlemi başarılı ",cevap.message!,cevap.succsess!)
-//                    print("işlem başarılı")
-//                    
-//                } catch{
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//        
-//        
-//    }
-//    
-//    
-//    
-    
-    
-    
-    
-    
-    
-//    func StudentScholarshipRegister (Model:Student?) {
-//        let parameters : [String:Any] = [
-//            "email":Model. ?? "",
-//            "password":Model?.password ?? "",
-//            "TCno" :Model?.TCno ?? ""
-// 
-//        ]
-//        AF.request("url", method: .post, parameters: parameters).response { response in
-//            if let data = response.data{
-//                do {
-//                    let cevap = try JSONDecoder().decode(Answer.self, from: data)
-//                    print("login işlemi başarılı ",cevap.message!,cevap.succsess!)
-//                    print("işlem başarılı")
-//                    
-//                } catch{
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//        
-//    }
-    func loginUser(email: String, password: String){
-        let parameters: [String: Any] = [
-            "email": email,
-            "password": password
-        ]
-
-        AF.request("url", method: .post, parameters: parameters).response { response in
-            if let data = response.data{
+protocol NetworkingAPI {
+    func sendRequest<T: Decodable>(url: String, method: String, parameters: [String: Any], responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
+}
+class APIwebService:NetworkingAPI {
+    func sendRequest<T: Decodable>(url: String, method: String, parameters: [String: Any], responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        
+        guard let urlString = URL(string: url) else {return}
+        
+        
+        AF.request(urlString, method: HTTPMethod(rawValue: method), parameters: parameters).response { response in
+            switch response.result {
+            case .success(let data):
                 do {
-                    let cevap = try JSONDecoder().decode(Answer.self, from: data)
-                    print("login işlemi başarılı ",cevap.message!,cevap.succsess!)
-                    print("işlem başarılı")
-                    
-                } catch{
-                    print(error.localizedDescription)
+                    let jsonData = try JSONSerialization.data(withJSONObject: data!)
+                    let decoder = JSONDecoder()
+                    let responseObject = try decoder.decode(T.self, from: jsonData)
+                    completion(.success(responseObject))
+                } catch {
+                    completion(.failure(error))
                 }
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
-        
     }
-    
-    
-    func UserRegister () {
-        
-        
-    }
-    func ScholarshipFecth() {
-        
-        
-        
-    }
-    
-    
+
 }
-//AF.request("https://jsonplaceholder.typicode.com/posts")
-//        .responseDecodable(of: [Post].self) { response in
-//            switch response.result {
-//            case .success(let posts):                                 GET işlemi icçin kullanılır
-//                print("Posts: \(posts)")
-//                // Başarılı yanıt geldiğinde, postları kullanabilirsiniz.
-//            case .failure(let error):
-//                print("Error: \(error)")
-//                // Hata durumunda uygun işlemleri gerçekleştirin.
-//            }
-//        }
