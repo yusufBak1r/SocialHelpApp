@@ -7,7 +7,8 @@
 
 import Foundation
  // Post --Get -- öğrenci bursa başvuran transkript yükleyen 
-class Student:Codable,UserProtocol{
+
+class Student:UserProtocol{
     var user: User
     let  name : String
     let surname : String
