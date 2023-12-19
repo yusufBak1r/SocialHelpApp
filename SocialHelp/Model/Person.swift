@@ -6,21 +6,20 @@
 //
 
 import Foundation
-//  burs verecek kişi  --- Post -- Get
+//  burs verecek kişi  --- Post -- Get  kulanıcı kayıt olucak kişi
 class Person :UserProtocol,Codable{
     var user:User
     var name:String
     var surame : String
     var birthOfDateYear : Int
-    var identityNumber :String
+    var identityNumber :String = ""
     var job :String
     
-    init(user: User, name: String, surame: String, birthOfDateYear: Int, identityNumber: String, job: String) {
+    init(user: User, name: String, surame: String, birthOfDateYear: Int, job: String) {
         self.user = user
         self.name = name
         self.surame = surame
         self.birthOfDateYear = birthOfDateYear
-        self.identityNumber = identityNumber
         self.job = job
     }
    

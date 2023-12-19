@@ -10,10 +10,10 @@ class Constants {
     
     
     
-    enum Url :String, CodingKey {
-        case BaseUrl = "eaaae"
-        case StudentBase = "aeaeae"
-        case UserUrl = "ae"
+    enum EnPointURL :String, CodingKey {
+        case loginPerson = "http://localhost:8090/api/person/login?email={email}&password={password}" // Pesron
+        case signUpPerson = "http://localhost:8090/api/person/signUp" //Peson signUp
+        case adminSignUp = "http://localhost:8090/api/admin/signUp"
         case Scholarship = "ğıağr"
     }
     

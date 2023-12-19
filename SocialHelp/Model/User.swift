@@ -6,17 +6,10 @@
 //
 
 import Foundation
-protocol Networking {
-    func sendRequest(url: String, method: String, parameters: [String: Any], completion: @escaping (Result<Data, Error>) -> Void)
-}
 protocol  UserProtocol {
     var user : User { get set }
 }
-struct User :Codable,Networking{
-    func sendRequest(url: String, method: String, parameters: [String : Any], completion: @escaping (Result<Data, Error>) -> Void) {
-        
-    }
-    
+struct User :Codable{
     var email: String
     var phone :String
     var password: String
@@ -25,6 +18,14 @@ struct User :Codable,Networking{
         self.password = password
         self.phone = phohe
     }
+    var user: User {
+           get {
+               return self // Örnek olarak kendisini döndürdük
+           }
+           set {
+               // Belirli bir işlem yapılabilir, ancak bu örnekte boş bıraktık
+           }
+       }
     
     
 

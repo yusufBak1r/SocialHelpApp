@@ -7,7 +7,7 @@
 
 import Foundation
 // Get Post Put
-class Admin:UserProtocol {
+class Admin {
     var user: User
     let permission :String
     init(user: User, permission: String) {

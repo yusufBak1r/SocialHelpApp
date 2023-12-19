@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    let fetch = UserDao()
     @IBOutlet weak var PswrdTextfiled: UITextField!
     @IBOutlet weak var mailTextfiled: UITextField!
     
@@ -16,13 +18,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
         setBackgroundImage(imageName: "back.jpeg")
     }
     
     @IBAction func loginButtom(_ sender: Any) {
         
-
+        if let emailtext = mailTextfiled.text ,let passwordtext = PswrdTextfiled.text {
+//            
+//         let a  = User(email:emailtext , password: passwordtext, phohe: "11111111111")
+//            let a1 = Admin(user: a, permission: "")
+            
+            
+       fetch.userLogin(email: emailtext, password: passwordtext)
+            
+            
+            
+//          fetch.adminSignUp(admins: a1)
+        }
         
         
     }
@@ -35,10 +48,9 @@ class ViewController: UIViewController {
         if (sender as AnyObject).selectedSegmentIndex == 1 {
          print("ikinci segment açıldı ")
             performSegue(withIdentifier: "toSignin", sender: nil)
-               
         }
         
+        
+        
     }
-    
-  
 }
