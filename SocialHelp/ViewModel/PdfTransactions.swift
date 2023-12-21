@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import PDFKit
-import Alamofire
 class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     static let shared = PdfTransactions()
     

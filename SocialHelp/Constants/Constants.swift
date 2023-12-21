@@ -18,12 +18,6 @@ class Constants {
         case Transkriptadd = "http://localhost:8090/api/student/addTranscript?pdf={pdf}&studentId={studentId}&term={term}" // öğrenci transcriptini yükleme
         
     }
-    
-    
-    
-    
-    
-    
     enum APIError: Error {
         case networkError
         case invalidResponse
