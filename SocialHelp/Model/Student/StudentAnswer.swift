@@ -1,14 +1,13 @@
 //
-//  StudentUser.swift
+//  StudentAnswer.swift
 //  SocialHelp
 //
-//  Created by yusuf bakır on 9.11.2023.
+//  Created by yusuf bakır on 17.12.2023.
 //
 
 import Foundation
- // Post --Get -- öğrenci bursa başvuran transkript yükleyen 
-
-class Student:UserProtocol{
+struct StudentAnswer :Codable,UserProtocol{
+    var id : Int
     var user: User
     let  name : String
     let surname : String
@@ -16,7 +15,8 @@ class Student:UserProtocol{
     let identityNumber:String
     let hasTranskript : Bool
     let schorlarship:Bool
-    init(user: User, name: String, surname: String, birthOfDateYear: Int, identityNumber: String, hasTranskript: Bool, schorlarship: Bool) {
+    init(id: Int, user: User, name: String, surname: String, birthOfDateYear: Int, identityNumber: String, hasTranskript: Bool, schorlarship: Bool) {
+        self.id = id
         self.user = user
         self.name = name
         self.surname = surname
@@ -25,6 +25,5 @@ class Student:UserProtocol{
         self.hasTranskript = hasTranskript
         self.schorlarship = schorlarship
     }
- 
     
 }

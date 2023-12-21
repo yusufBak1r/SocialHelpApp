@@ -16,7 +16,16 @@ struct Scholarship{
     let person : Person
     let student:Student
     let full :Bool
-    
+    init(id: Int, name: String, description: String, amount: Int, applicationDate: String, person: Person, student: Student, full: Bool) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.amount = amount
+        self.applicationDate = applicationDate
+        self.person = person
+        self.student = student
+        self.full = full
+    }
 
     
    
