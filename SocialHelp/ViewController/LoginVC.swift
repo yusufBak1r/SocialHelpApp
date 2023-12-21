@@ -23,18 +23,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginButtom(_ sender: Any) {
-        
-        if let emailtext = mailTextfiled.text ,let passwordtext = PswrdTextfiled.text {
-//            
-//         let a  = User(email:emailtext , password: passwordtext, phohe: "11111111111")
-//            let a1 = Admin(user: a, permission: "")
+        if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
             
-            
-       fetch.userLogin(email: emailtext, password: passwordtext)
-            
-            
-            
-//          fetch.adminSignUp(admins: a1)
+            fetch.userLogin(email: email, password: password)
         }
         
         

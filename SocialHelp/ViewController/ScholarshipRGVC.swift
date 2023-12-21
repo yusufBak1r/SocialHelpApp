@@ -9,19 +9,25 @@ import UIKit
 // pickDocument()
 class ScholarshipRegistration: UIViewController {
 
+    @IBOutlet var View1: UIView!
+    @IBOutlet var aboutME: UITextView!
+    @IBOutlet var View3: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
             setBackgroundImage(imageName: "back.jpeg")
+        View1.layer.cornerRadius = 20
+        aboutME.layer.cornerRadius = 20
+        View3.layer.cornerRadius = 15
         
        
     }
     
+   
     
-    @IBAction func pdfsec(_ sender: Any) {
+    @IBAction func PdfSec(_ sender: Any) {
         pickDocument()
     }
     
-   
 
 }
 extension ScholarshipRegistration :UIDocumentPickerDelegate{

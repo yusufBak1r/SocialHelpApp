@@ -35,9 +35,13 @@ extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewCell.dequeueReusableCell(withIdentifier: "CellSc", for: indexPath) as! SchalorshipGiveCell
-        
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndexPath = indexPath
+        print(selectedIndexPath)
+        let destinationViewController = StudentDetailsVC()
+       performSegue(withIdentifier: "toStudentDetails", sender: nil)
+    }
     
 }

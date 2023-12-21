@@ -31,6 +31,7 @@ class UserDao {
             "job": signinPerson.job]
         print(parameters)
         service.makeBodyRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method:"POST", parameters: parameters, completion: {response in
+            
                 
         })
         
