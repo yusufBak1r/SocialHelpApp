@@ -9,7 +9,7 @@ import UIKit
 
 class GiveScholarship: UIViewController {
  
-  
+    
     @IBOutlet var tableViewCell: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,7 @@ extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewCell.dequeueReusableCell(withIdentifier: "CellSc", for: indexPath) as! SchalorshipGiveCell
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

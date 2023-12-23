@@ -12,7 +12,7 @@ class Person :UserProtocol,Codable,Identifiable{
     var name:String
     var surame : String
     var birthOfDateYear : Int
-    var identityNumber = UUID().uuidString
+    var identityNumber = 0
     var job :String
     
     init(user: User, name: String, surame: String, birthOfDateYear: Int, job: String) {

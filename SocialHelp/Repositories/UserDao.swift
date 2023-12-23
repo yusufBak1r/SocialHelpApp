@@ -6,18 +6,18 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 import Alamofire
 class UserDao {
-    
+  
+    let  login : PublishSubject<Answer> = PublishSubject()
+    let  signUp : PublishSubject<PersonAnswer> = PublishSubject()
+    let  error : PublishSubject<String> = PublishSubject()
+
+   
+  
     let service = APIwebService()
-    
-    func userLogin (email:String,password:String) {
-        service.makeGetRequest(url:"http://localhost:8090/api/person/login?email={email}&password={password}" , responseType: Answer.self, completion: {response in
-            
-        })
-        
-    }
-    
     
     func userSigin (signinPerson : Person) {
         let parameters : [String:Any] = [
@@ -29,28 +29,46 @@ class UserDao {
             "birthOfDateYear": signinPerson.birthOfDateYear,
             "identityNumber": signinPerson.identityNumber,
             "job": signinPerson.job]
-        print(parameters)
-        service.makeBodyRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method:"POST", parameters: parameters, completion: {response in
-            
+       
+        service.makeBodyRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method:"POST", responseType: PersonAnswer.self, parameters: parameters, completion: {response in
+            switch response {
+            case .success(let data):
+               self.signUp.onNext(data)
+             
+            case .failure(let error):
+                debugPrint(error)
+                self.error.onNext("Servis Hatasaı")
                 
+            }
         })
-        
+        self.error.onNext("Sunucu Hatası")
         
         
     }
-    func adminSignUp (admins:Admin) {
-        let parametters : [String:Any] = [
-            "email": admins.user.email,
-            "phone": admins.user.phone,
-            "password": admins.user.password,
+    func userLogin (email:String,password:String)  {
         
-        ]
-        service.makeBodyRequest(url: Constants.EnPointURL.adminSignUp.rawValue, method: "POST", parameters: parametters, completion: { response in
+        
+        
+       
+        service.makeGetRequest(url:"http://localhost:8090/api/person/login?email=\(email)&password=\(password)" , responseType: Answer.self, completion: {response in
             
-      
+            switch response {
+        
+            case .success(let data) :
+                self.login.onNext(data)
+            case .failure(let error):
+               debugPrint(error)
+                self.error.onNext("sunucu hatası")
+                
+            
+            }
             
         })
+       
         
     }
+   
     
 }
+
+ 

@@ -11,7 +11,7 @@ import PDFKit
 class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     static let shared = PdfTransactions()
     
-    
+    let fetch = StudentDao()
     
     func  pdfData (pdfURl:URL) {
         do
@@ -22,6 +22,7 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
             
             print(base64String)
             
+            fetch.Transkriptfetch(base64: base64String)
             decodeBase64ToPDF(base64String: base64String)
 
         }catch{

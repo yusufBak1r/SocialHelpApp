@@ -23,17 +23,18 @@ class StudentDao{
             "hasTranskript": student.hasTranskript,
             "scholarship": student.schorlarship]
         
-        networkign.makeBodyRequest(url: "", method: "POST", parameters: parametters, completion: {response in
-            
+        networkign.makeBodyRequest(url: "", method: "POST", responseType: Answer.self, parameters: parametters, completion: {response in
+
         })
         
     }
     func StudentLogin(Student:User) {
     networkign.makeGetRequest(url:"http://localhost:8090/api/student/login?email=\(Student.email)&password=\(Student.password)" , responseType: Answer.self, completion: { response in
-            
+        
         })
     }
-    
+
+//    
 //    func StudentTranscriptLoading(Transcript:TranskriptModel) {
 //        let parametters: [String:Any] = [
 //            "email":Transcript.student.name,
@@ -48,11 +49,31 @@ class StudentDao{
 //        
 //        
 //    }
+//    
     
     
     
-    
-    
+    func Transkriptfetch (base64:String) {
+        let c  = User(email: "eiaieaie", password: "aemkkaei", phohe: "11111111111")
+        let b = Student(user: c, name: "yusuf", surname: "bakır", birthOfDateYear: 2001, identityNumber: "", hasTranskript: false, schorlarship: false)
+        let a1 = self.StudentSignUP(student:b )
+        let params:[String:Any] = [
+            "" :""
+        
+        
+        ]
+        networkign.makeBodyRequest(url: "http://localhost:8090/api/student/addTranscript", method: "POST", responseType: Answer.self, parameters: [:], completion: { response in
+            
+            
+//            parametre olarak string pdf,term:String studentId:int
+            
+            
+            
+            
+            
+        })
+        
+    }
    
     
 }

@@ -8,7 +8,12 @@
 import UIKit
 // pickDocument()
 class ScholarshipRegistration: UIViewController {
-
+    @IBOutlet var studentEmail: UITextField!
+    
+    @IBOutlet var studentPassword: UITextField!
+    @IBOutlet var DateOfBirth: UITextField!
+    @IBOutlet var studentLastName: UITextField!
+    @IBOutlet var studentName: UITextField!
     @IBOutlet var View1: UIView!
     @IBOutlet var aboutME: UITextView!
     @IBOutlet var View3: UIView!
@@ -22,10 +27,15 @@ class ScholarshipRegistration: UIViewController {
        
     }
     
-   
+    @IBAction func StudentSignup(_ sender: Any) {
+    }
+    
     
     @IBAction func PdfSec(_ sender: Any) {
         pickDocument()
+    }
+    
+    @IBAction func scholarshipComplete(_ sender: Any) {
     }
     
 

@@ -10,12 +10,12 @@ import Alamofire
 
 protocol NetworkingAPI {
     
-    func makeBodyRequest(url: String, method: String, parameters: [String: Any], completion: @escaping (Result<Data, Error>) -> Void)
+    func makeBodyRequest<T: Decodable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void)
     func makeGetRequest<T: Decodable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
 }
 class APIwebService:NetworkingAPI {
     
-    func makeBodyRequest(url: String, method: String, parameters: [String: Any], completion: @escaping (Result<Data, Error>) -> Void) {
+    func makeBodyRequest<T: Decodable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T,Error>) -> Void) {
         
         guard let urlString = URL(string: url) else {return}
         
@@ -24,19 +24,29 @@ class APIwebService:NetworkingAPI {
             switch response.result {
             
             case .success(let data):
+        
                 do {
-                    
-                    let jsonData = try JSONSerialization.data(withJSONObject:data)
-                    print(jsonData)
-                  
-  
-                } catch {
-                    
-                    completion(.failure(error))
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: data){
+ 
+                    let decoder = JSONDecoder()
+                    let responseObject = try? decoder.decode(T.self, from: jsonData )
+                        print(responseObject ?? "")
+                        if let cevap = responseObject {
+                            completion(.success(cevap))
+                        }else{
+                            throw NSError(domain: "Invalid JSON Data", code: 0, userInfo: nil)
+                        }
+                    }
+                }catch{
+                    print(error.localizedDescription)
+                    print("Error decoding JSON: \(error.localizedDescription)")
                 }
+              
             case .failure(let error):
                 
                 completion(.failure(error))
+                completion(.failure(Constants.APIError.serverError(statusCode: 0)))
+                
             }
             
             
@@ -45,7 +55,8 @@ class APIwebService:NetworkingAPI {
     
     func makeGetRequest<T: Decodable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
-        guard let urlString = URL(string: url) else {return}
+        guard let urlString = URL(string: url) else {completion(.failure(Constants.APIError.networkError))
+            return}
         
         
         AF.request(urlString, method:HTTPMethod(rawValue: "GET")).responseJSON{ response in
@@ -58,18 +69,22 @@ class APIwebService:NetworkingAPI {
                     let jsonData = try JSONSerialization.data(withJSONObject: data)
                     
                     let decoder = JSONDecoder()
-                    let responseObject = try decoder.decode(T.self, from: jsonData)
-            
-
-                    completion(.success(responseObject))
+                    let responseObject = try? decoder.decode(T.self, from: jsonData)
+                    if let cevap = responseObject {
+                        completion(.success(cevap))
+                    }
+                    
                     
                 } catch {
                     
                     completion(.failure(error))
+                  print("Decoder json")
                 }
             case .failure(let error):
                 
                 completion(.failure(error))
+                completion(.failure(Constants.APIError.serverError(statusCode: 0)))
+                
             }
         }
     }
@@ -92,3 +107,29 @@ class APIwebService:NetworkingAPI {
     }
 
   
+//class func taskForPOSTRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: String, completion: @escaping (ResponseType?, Error?) -> Void) {
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.httpBody = body.data(using: .utf8)
+//        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data else {
+//                DispatchQueue.main.async {
+//                    completion(nil, error)
+//                }
+//                return
+//            }
+//            let decoder = JSONDecoder()
+//            do {
+//                let responseObject = try decoder.decode(ResponseType.self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(responseObject, nil)
+//                }
+//            } catch {
+//                DispatchQueue.main.async {
+//                    completion(nil, error)
+//                }
+//            }
+//        }
+//        task.resume()
+//    }
