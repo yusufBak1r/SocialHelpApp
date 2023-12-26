@@ -10,11 +10,12 @@ import UIKit
 class SchalorshipGiveCell: UITableViewCell {
 
     @IBOutlet var StudentTextLabel: UILabel!
-    
+  
     @IBOutlet var promise: UILabel!
     @IBOutlet var universityName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+    
        
        
     }

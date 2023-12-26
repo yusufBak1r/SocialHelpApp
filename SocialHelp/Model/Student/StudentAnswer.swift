@@ -6,24 +6,40 @@
 //
 
 import Foundation
-struct StudentAnswer :Codable,UserProtocol{
-    var id : Int
-    var user: User
-    let  name : String
-    let surname : String
-    let birthOfDateYear :Int
-    let identityNumber:String
-    let hasTranskript : Bool
-    let schorlarship:Bool
-    init(id: Int, user: User, name: String, surname: String, birthOfDateYear: Int, identityNumber: String, hasTranskript: Bool, schorlarship: Bool) {
-        self.id = id
-        self.user = user
-        self.name = name
-        self.surname = surname
-        self.birthOfDateYear = birthOfDateYear
-        self.identityNumber = identityNumber
-        self.hasTranskript = hasTranskript
-        self.schorlarship = schorlarship
+struct StudentAnswer :Codable{
+  
+        let success: Bool
+        let message: String
+        let data: [Datum]
+    init(success: Bool, message: String, data: [Datum]) {
+        self.success = success
+        self.message = message
+        self.data = data
+    }
     }
     
-}
+    
+struct Datum:Codable {
+  
+        let id: Int
+        let email, phone, password, name: String
+        let surname: String
+        let birthOfDateYear: Int
+        let identityNumber: String
+        let hasTranskript, scholarship: Bool
+        init(id: Int, email: String, phone: String, password: String, name: String, surname: String, birthOfDateYear: Int, identityNumber: String, hasTranskript: Bool, scholarship: Bool) {
+            self.id = id
+            self.email = email
+            self.phone = phone
+            self.password = password
+            self.name = name
+            self.surname = surname
+            self.birthOfDateYear = birthOfDateYear
+            self.identityNumber = identityNumber
+            self.hasTranskript = hasTranskript
+            self.scholarship = scholarship
+        }
+    }
+    
+    
+

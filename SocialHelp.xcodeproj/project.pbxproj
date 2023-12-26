@@ -280,9 +280,9 @@
 				F05D56402AF8EE1800EAB0E1 /* LoginVC.swift */,
 				F0E1D58A2AFBDBE4006C5329 /* SignİnVC.swift */,
 				F0D41A7F2AFD16DE002E1BF5 /* SettingVC.swift */,
+				F0A8E8F82B2B79CA007DE877 /* ScholarshipRGVC.swift */,
 				F0E1D5702AFAA552006C5329 /* GiveScholarshipVC.swift */,
 				F0E1D5722AFAA5B4006C5329 /* DonationVC.swift */,
-				F0A8E8F82B2B79CA007DE877 /* ScholarshipRGVC.swift */,
 				F08AFC202B3231C1007069EE /* StudentDetailsVC.swift */,
 			);
 			path = ViewController;

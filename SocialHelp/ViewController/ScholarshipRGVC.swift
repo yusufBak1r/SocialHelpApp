@@ -8,8 +8,11 @@
 import UIKit
 // pickDocument()
 class ScholarshipRegistration: UIViewController {
-    @IBOutlet var studentEmail: UITextField!
     
+   var studnetDao = StudentDao()
+    
+    @IBOutlet var studentEmail: UITextField!
+      
     @IBOutlet var studentPassword: UITextField!
     @IBOutlet var DateOfBirth: UITextField!
     @IBOutlet var studentLastName: UITextField!
@@ -28,6 +31,17 @@ class ScholarshipRegistration: UIViewController {
     }
     
     @IBAction func StudentSignup(_ sender: Any) {
+        
+        if studentPassword.text != "",DateOfBirth.text != "",studentName.text  != "" ,studentName.text != "" ,studentLastName.text != ""   {
+            let userStudent = User(email: "", password: "", phohe: "00000000000")
+            let studentSignup = Student(user: userStudent, name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 0, identityNumber: "", hasTranskript: false, schorlarship: false)
+            studnetDao.StudentSignUP(student: studentSignup)
+            
+            
+        }else{
+            let messageSignAllert = self.addAlert(title: "UYARI", message: "Gerekli alanları doldurunuz")
+            self.present(messageSignAllert, animated: true, completion: nil)
+        }
     }
     
     
@@ -60,6 +74,7 @@ extension ScholarshipRegistration :UIDocumentPickerDelegate{
         
            // Seçilen dosyayı kullanabilirsiniz
            print("Seçilen Dosya URL: \(selectedFileURL)")
+       
            
           
            

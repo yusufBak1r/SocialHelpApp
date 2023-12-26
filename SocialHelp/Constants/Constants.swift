@@ -14,7 +14,7 @@ class Constants {
         case loginPerson = "http://localhost:8090/api/person/login?email={email}&password={password}" // person login
         case signUpPerson = "http://localhost:8090/api/person/signUp" //person signUp
         case adminSignUp = "http://localhost:8090/api/admin/signUp" // admin kayıt ekranı
-        case StudentSignU = "http://localhost:8090/api/student/getall" // tüm öğrencileri getirme
+        case studentGetAll = "http://localhost:8090/api/student/getall" // tüm öğrencileri getirme
         case Transkriptadd = "http://localhost:8090/api/student/addTranscript?pdf={pdf}&studentId={studentId}&term={term}" // öğrenci transcriptini yükleme
         
     }

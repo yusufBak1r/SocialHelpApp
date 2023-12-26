@@ -6,19 +6,21 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class StudentDetailsVC: UIViewController {
-    let boolSubject = BehaviorSubject<Bool>(value: false)
-    @IBOutlet var StudentName: UILabel!
-    
-    @IBOutlet var AboutMe: UILabel!
-    @IBOutlet var UniversityName: UILabel!
+    var  selectedName =  ""
+    var selectedUniversity = ""
+    var selectedAboutMe = ""
+    @IBOutlet var studentNameLabel: UILabel!
+    @IBOutlet var aboutMeLabel: UILabel!
+    @IBOutlet var universityLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setBackgroundImage(imageName: "back.jpeg")
+        
+        studentNameLabel.text = selectedName
+        aboutMeLabel.text = selectedAboutMe
+        universityLabel.text = selectedUniversity
      
     }
     
@@ -30,19 +32,6 @@ class StudentDetailsVC: UIViewController {
     @IBAction func ScholarshipButtom(_ sender: Any) {
         
       
-
-        // Abonelik oluşturuyoruz ve bu Bool değerini takip ediyoruz.
-        let disposable = boolSubject.subscribe(onNext: { value in
-            print("Bool değeri: \(value)")
-        })
-
-        // Değerler yayılmaya başlıyor.
-        boolSubject.onNext(true) // Bool değeri true olarak değiştirildiğinde
-        boolSubject.onNext(false) // Bool değeri tekrar false olarak değiştirildiğinde
-
-        // Abonelikten çıkış yapıyoruz.
-        disposable.dispose()
-        
         
         
     }

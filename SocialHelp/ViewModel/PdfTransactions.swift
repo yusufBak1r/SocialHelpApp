@@ -22,7 +22,8 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
             
             print(base64String)
             
-            fetch.Transkriptfetch(base64: base64String)
+//            fetch.Transkriptfetch(base64: base64String, studentID: 84)
+            
             decodeBase64ToPDF(base64String: base64String)
 
         }catch{
