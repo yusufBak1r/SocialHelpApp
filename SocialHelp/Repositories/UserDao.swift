@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 import Alamofire
 class UserDao {
-  
+//    Observer (Gözlemci) Deseni
+//    Bir nesnenin durumu değiştiğinde, ona bağlı olan diğer nesnelerin haberdar olmasını sağlar.
     let  login : PublishSubject<Answer> = PublishSubject()
     let  signUp : PublishSubject<PersonAnswer> = PublishSubject()
     let  error : PublishSubject<String> = PublishSubject()
@@ -23,7 +24,7 @@ class UserDao {
         let parameters : [String:Any] = [
             "email":signinPerson.user.email,
             "phone":signinPerson.user.phone,
-            "password": signinPerson.user.phone,
+            "password": signinPerson.user.password,
             "name": signinPerson.name,
             "surname": signinPerson.surame,
             "birthOfDateYear": signinPerson.birthOfDateYear,
@@ -37,7 +38,7 @@ class UserDao {
              
             case .failure(let error):
                 debugPrint(error)
-                self.error.onNext("Servis Hatasaı")
+                self.error.onNext("Uygulama Servis Hatasaı")
                 
             }
         })
@@ -46,10 +47,7 @@ class UserDao {
         
     }
     func userLogin (email:String,password:String)  {
-        
-        
-        
-       
+    
         service.makeGetRequest(url:"http://localhost:8090/api/person/login?email=\(email)&password=\(password)" , responseType: Answer.self, completion: {response in
             
             switch response {
@@ -58,14 +56,14 @@ class UserDao {
                 self.login.onNext(data)
             case .failure(let error):
                debugPrint(error)
-                self.error.onNext("sunucu hatası")
+                self.error.onNext("Uygulama servis  hatası")
                 
             
             }
-            
+            self.error.onNext("json decoder")
         })
        
-        
+      
     }
    
     

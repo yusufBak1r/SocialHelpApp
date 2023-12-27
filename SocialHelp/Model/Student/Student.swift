@@ -9,6 +9,7 @@ import Foundation
 
 
 class Student:UserProtocol{
+    var id : Int = 0
     var user: User
     let  name : String
     let surname : String

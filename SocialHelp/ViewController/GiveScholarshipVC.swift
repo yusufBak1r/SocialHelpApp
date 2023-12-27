@@ -22,6 +22,8 @@ class GiveScholarship: UIViewController {
         // Do any additional setup after loading the view.
         tableViewCell.delegate = self
         tableViewCell.dataSource = self
+//        Delegate Deseni
+//        Bir nesnenin başka bir nesne için görevlerini gerçekleştirmesine olanak tanır.
         
         viewModel.getAllStudent()
         studentList()
@@ -63,8 +65,12 @@ extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         cellRowatName  =   listStdent[indexPath.row].name
         performSegue(withIdentifier:"toStudentDetails" , sender: nil)
+//        Adaptor Deseni
+//        Farklı arayüzleri veya sınıfları birbirine uyumlu hale getirmek için kullanılır.
+//        Özellikle mevcut bir yapıyı değiştirmeden yeni bir yapıya uyum sağlamak için kullanışlıdır.
 
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toStudentDetails" {
             if  let navigationController = segue.destination as?  UINavigationController {

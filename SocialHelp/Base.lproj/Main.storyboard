@@ -255,7 +255,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <segue destination="FIJ-Rs-rQe" kind="show" id="OdE-Yg-29Q"/>
+                                    <segue destination="FIJ-Rs-rQe" kind="presentation" modalPresentationStyle="fullScreen" id="OdE-Yg-29Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -302,11 +302,11 @@
             <objects>
                 <viewController title="scholarship registration" id="v7a-zH-DWs" customClass="ScholarshipRegistration" customModule="SocialHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxI-uY-bxA">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="1270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="1280"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez3-xi-n6q">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="1221"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="1231"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1c3-zC-XFs">
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="1280"/>
@@ -478,11 +478,11 @@
             <objects>
                 <viewController id="afz-Qs-F09" customClass="DonationVC" customModule="SocialHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uXv-Ap-zKc">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XLc-5l-219">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="873"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="883"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="413" id="zdE-jX-Zqd" customClass="DonationCell" customModule="SocialHelp" customModuleProvider="target">
@@ -594,7 +594,7 @@
             <objects>
                 <viewController title="GiveScholarship" id="4f7-0o-IJs" customClass="GiveScholarship" customModule="SocialHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NJu-sv-pHY">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="bxQ-Fx-fah">
@@ -840,7 +840,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CaJ-zG-hTn"/>
+        <segue reference="OdE-Yg-29Q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="StudentIcon 1" width="2000" height="2000"/>

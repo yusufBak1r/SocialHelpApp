@@ -8,6 +8,8 @@
 import Foundation
 protocol  UserProtocol {
     var user : User { get set }
+//    Factory Deseni
+//    Nesne oluşturmayı merkezi bir noktaya taşır ve farklı alt sınıfların oluşturulmasını soyutlar.
 }
 struct User :Codable{
     var email: String

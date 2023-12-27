@@ -11,7 +11,8 @@ import RxCocoa
 
 class StudentDao{
     
-    var  studentData : PublishSubject<StudentAnswer> = PublishSubject()
+    let  studentData : PublishSubject<StudentAnswer> = PublishSubject()
+    let  studentSignUp : PublishSubject<StudentAnswerSignin> = PublishSubject()
     
     let networkign = APIwebService()
    
@@ -27,12 +28,14 @@ class StudentDao{
             "hasTranskript": student.hasTranskript,
             "scholarship": student.schorlarship]
         
-        networkign.makeBodyRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method: "POST", responseType: StudentAnswer.self, parameters: parametters, completion: {response in
+        networkign.makeBodyRequest(url: Constants.EnPointURL.studentSignUp.rawValue, method: "POST", responseType: StudentAnswerSignin.self, parameters: parametters, completion: {response in
             switch response {
+
             case .success(let data):
-                self.studentData.onNext(data)
+                self.studentSignUp.onNext(data)
             case .failure(let error ):
                 print(error)
+                
                 
             }
 
@@ -53,35 +56,41 @@ class StudentDao{
             print(error)
                 
             }
-            
+           
             
         })
     }
     
     
-    
-    
-   
+    func Transkriptfetch (base64:String,studentID:Int,term :String) {
+       
+        let params :[String:Any] = [
+        
+            "student":[
+            
+                "id":studentID
+            
+            ],
+        
+            "term":term,
+            "transcriptPdf":base64
+        
+        
+        ]
+        self.networkign.makeBodyRequest(url: Constants.EnPointURL.Transkriptadd.rawValue, method: "POST", responseType: Answer.self, parameters: params, completion: { response in
+            switch response {
+            case .success(let data):
+                print(data)
+            case .failure(let error ):
+                print(error)
+
+            }
+
+
+        })
+
+    }
     
 }
-//
-//    func Transkriptfetch (base64:String,studentID:StudentAnswer) {
-//
-//
-//        networkign.makeBodyRequest(url: "http://localhost:8090/api/student/addTranscript", method: "POST", responseType: Answer.self, parameters: [:], completion: { response in
-//
-//            switch response {
-//            case .success(let data):
-//                print(data)
-//            case .failure(let error ):
-//                print(error)
-//
-//            }
-//
-//
-//
-//
-//
-//        })
-//
-//    }
+
+    

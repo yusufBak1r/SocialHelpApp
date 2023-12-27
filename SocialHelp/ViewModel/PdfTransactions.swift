@@ -13,22 +13,24 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     
     let fetch = StudentDao()
     
-    func  pdfData (pdfURl:URL) {
+    func  pdfData (pdfURl:URL) ->String{
         do
         {
             let fileData = try Data(contentsOf: pdfURl)
            
             let base64String = fileData.base64EncodedString()
             
-            print(base64String)
+//            print(base64String)
             
 //            fetch.Transkriptfetch(base64: base64String, studentID: 84)
-            
+            return base64String
             decodeBase64ToPDF(base64String: base64String)
 
         }catch{
             print("Dosya okununrken hata oluştu \(error)")
+            return ""
         }
+       
     }
     
     

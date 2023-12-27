@@ -15,8 +15,8 @@ class Constants {
         case signUpPerson = "http://localhost:8090/api/person/signUp" //person signUp
         case adminSignUp = "http://localhost:8090/api/admin/signUp" // admin kayıt ekranı
         case studentGetAll = "http://localhost:8090/api/student/getall" // tüm öğrencileri getirme
-        case Transkriptadd = "http://localhost:8090/api/student/addTranscript?pdf={pdf}&studentId={studentId}&term={term}" // öğrenci transcriptini yükleme
-        
+        case Transkriptadd = "http://localhost:8090/api/student/addTranscript" // öğrenci transcriptini yükleme
+        case studentSignUp = "http://localhost:8090/api/student/signUp"
     }
     enum APIError: Error {
         case networkError

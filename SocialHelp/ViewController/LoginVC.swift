@@ -23,9 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ error in
-            let message =  self.addAlert(title: "UYARI", message: "Servis Hatası ,Sunucu Çalışmıyor")
+            let message =  self.addAlert(title: "UYARI", message: error.element!)
             self.present(message, animated: true, completion: nil)
         }).disposed(by: disposeBag)
+        
         setBackgroundImage(imageName: "back.jpeg")
     }
     

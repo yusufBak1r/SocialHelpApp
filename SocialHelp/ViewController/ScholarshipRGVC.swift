@@ -7,10 +7,13 @@
 
 import UIKit
 // pickDocument()
+import RxSwift
+import RxCocoa
 class ScholarshipRegistration: UIViewController {
-    
-   var studnetDao = StudentDao()
-    
+    let disposeBag = DisposeBag()
+   var fetch = StudentDao()
+    var studntModel :StudentAnswerSignin?
+    var transcriptString:String = ""
     @IBOutlet var studentEmail: UITextField!
       
     @IBOutlet var studentPassword: UITextField!
@@ -21,35 +24,87 @@ class ScholarshipRegistration: UIViewController {
     @IBOutlet var aboutME: UITextView!
     @IBOutlet var View3: UIView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+ 
             setBackgroundImage(imageName: "back.jpeg")
         View1.layer.cornerRadius = 20
         aboutME.layer.cornerRadius = 20
         View3.layer.cornerRadius = 15
-        
+
+       
        
     }
     
     @IBAction func StudentSignup(_ sender: Any) {
         
         if studentPassword.text != "",DateOfBirth.text != "",studentName.text  != "" ,studentName.text != "" ,studentLastName.text != ""   {
-            let userStudent = User(email: "", password: "", phohe: "00000000000")
-            let studentSignup = Student(user: userStudent, name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 0, identityNumber: "", hasTranskript: false, schorlarship: false)
-            studnetDao.StudentSignUP(student: studentSignup)
+            let userStudent = User(email: studentEmail.text!, password: studentPassword.text!, phohe: "00000000000")
+            
+            let studentSignup = Student(user: userStudent, name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false)
+            binding()
+            fetch.StudentSignUP(student: studentSignup)
+            
             
             
         }else{
             let messageSignAllert = self.addAlert(title: "UYARI", message: "Gerekli alanları doldurunuz")
             self.present(messageSignAllert, animated: true, completion: nil)
         }
+       
+
     }
     
-    
+    func binding() {
+        
+        
+        fetch.studentSignUp.observe(on: MainScheduler.asyncInstance).subscribe{ answer in
+            
+            if answer.success == true {
+                self.studntModel = answer
+               
+                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message ?? "Boş" )
+                self.present(messageSignAllert, animated: true, completion: nil)
+                self.studentPassword.text = ""
+                self.DateOfBirth.text = ""
+                self.studentLastName.text
+                self.studentName.text = ""
+                
+                
+                
+                
+
+    //              Decorator Deseni
+    //              Bir nesnenin işlevselliğini dinamik olarak genişletmek için kullanılır.
+    //              Örneğin, bir nesnenin davranışını sarmalayarak yeni özellikler eklemek.
+                  
+            }else {
+               
+                let messageAllert = self.addAlert(title: "UYARI", message: answer.message ?? "cevap false geldi")
+                self.present(messageAllert, animated: true, completion: nil)
+            }
+            
+        }.disposed(by: disposeBag)
+        
+        
+        
+    }
     @IBAction func PdfSec(_ sender: Any) {
+        
+        
+        
         pickDocument()
     }
     
     @IBAction func scholarshipComplete(_ sender: Any) {
+        if let term = aboutME.text {
+            fetch.Transkriptfetch(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: term)
+            
+        }else {
+            print("lütfen  kendinizden biraz bahsedin ")
+        }
+        
+        
     }
     
 
@@ -70,7 +125,7 @@ extension ScholarshipRegistration :UIDocumentPickerDelegate{
                return
              
            }
-        PdfTransactions.shared.pdfData(pdfURl: selectedFileURL)
+         transcriptString =  PdfTransactions.shared.pdfData(pdfURl: selectedFileURL)
         
            // Seçilen dosyayı kullanabilirsiniz
            print("Seçilen Dosya URL: \(selectedFileURL)")
