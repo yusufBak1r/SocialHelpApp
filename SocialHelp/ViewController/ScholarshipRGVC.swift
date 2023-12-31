@@ -44,6 +44,7 @@ class ScholarshipRegistration: UIViewController {
             let studentSignup = Student(user: userStudent, name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false)
             binding()
             fetch.StudentSignUP(student: studentSignup)
+           
             
             
             
@@ -63,24 +64,21 @@ class ScholarshipRegistration: UIViewController {
             if answer.success == true {
                 self.studntModel = answer
                
-                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message ?? "Boş" )
+                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message )
                 self.present(messageSignAllert, animated: true, completion: nil)
                 self.studentPassword.text = ""
                 self.DateOfBirth.text = ""
-                self.studentLastName.text
+                self.studentLastName.text = ""
                 self.studentName.text = ""
+                self.studentEmail.text = ""
                 
-                
-                
-                
-
     //              Decorator Deseni
     //              Bir nesnenin işlevselliğini dinamik olarak genişletmek için kullanılır.
     //              Örneğin, bir nesnenin davranışını sarmalayarak yeni özellikler eklemek.
                   
-            }else {
+            }else if answer.success == false  {
                
-                let messageAllert = self.addAlert(title: "UYARI", message: answer.message ?? "cevap false geldi")
+                let messageAllert = self.addAlert(title: "UYARI", message: answer.message )
                 self.present(messageAllert, animated: true, completion: nil)
             }
             
@@ -97,11 +95,15 @@ class ScholarshipRegistration: UIViewController {
     }
     
     @IBAction func scholarshipComplete(_ sender: Any) {
-        if let term = aboutME.text {
-            fetch.Transkriptfetch(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: term)
+        if  aboutME.text != "" {
+           
+            fetch.transcriptLoading(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: aboutME.text)
+            
+            
             
         }else {
-            print("lütfen  kendinizden biraz bahsedin ")
+            let messageAllert = self.addAlert(title: "UYARI", message:"Lütfen kendininzden biraz Bahsedin" )
+            self.present(messageAllert, animated: true, completion: nil)
         }
         
         
@@ -129,6 +131,8 @@ extension ScholarshipRegistration :UIDocumentPickerDelegate{
         
            // Seçilen dosyayı kullanabilirsiniz
            print("Seçilen Dosya URL: \(selectedFileURL)")
+        let messageAllert = self.addAlert(title: "UYARI", message: "Transkript Başarıyla Yüklendi")
+        self.present(messageAllert, animated: true, completion: nil)
        
            
           
@@ -138,6 +142,8 @@ extension ScholarshipRegistration :UIDocumentPickerDelegate{
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
             // Kullanıcı seçim işlemini iptal ettiğinde çağrılır
             print("Belge seçimi iptal edildi")
+        let messageAllert = self.addAlert(title: "UYARI", message: "Transkript  Yükleme Başarısız")
+        self.present(messageAllert, animated: true, completion: nil)
         }
     
 

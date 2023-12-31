@@ -8,10 +8,10 @@
 import Foundation
 
 
-class Student:UserProtocol{
+class Student:UserProtocol,Codable{
     var id : Int = 0
     var user: User
-    let  name : String
+    let name : String
     let surname : String
     let birthOfDateYear :Int
     let identityNumber:String

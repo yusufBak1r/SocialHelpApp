@@ -8,7 +8,7 @@
 import Foundation
 struct PersonAnswer :Codable{
     let success: Bool
-        let message: String
+    let message: String
         
     }
 

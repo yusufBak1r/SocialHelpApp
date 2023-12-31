@@ -10,12 +10,12 @@ import Alamofire
 
 protocol NetworkingAPI {
     
-    func makeBodyRequest<T: Decodable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void)
-    func makeGetRequest<T: Decodable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
+    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void)
+    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
 }
 class APIwebService:NetworkingAPI {
     
-    func makeBodyRequest<T: Decodable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T,Error>) -> Void) {
+    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T,Error>) -> Void) {
         
         guard let urlString = URL(string: url) else {return}
         
@@ -53,7 +53,7 @@ class APIwebService:NetworkingAPI {
         }
     }
     
-    func makeGetRequest<T: Decodable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
         guard let urlString = URL(string: url) else {completion(.failure(Constants.APIError.networkError))
             return}

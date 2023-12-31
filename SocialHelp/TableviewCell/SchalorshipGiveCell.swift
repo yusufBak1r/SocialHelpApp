@@ -15,6 +15,7 @@ class SchalorshipGiveCell: UITableViewCell {
     @IBOutlet var universityName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+      
     
        
        

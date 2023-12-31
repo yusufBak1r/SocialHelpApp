@@ -20,9 +20,7 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
            
             let base64String = fileData.base64EncodedString()
             
-//            print(base64String)
-            
-//            fetch.Transkriptfetch(base64: base64String, studentID: 84)
+
             return base64String
             decodeBase64ToPDF(base64String: base64String)
 
@@ -32,7 +30,6 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
         }
        
     }
-    
     
     
     
@@ -55,6 +52,27 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
                 }
             }
         }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        if let pickedPDFURL = urls.first {
+            do {
+                let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let destinationURL = documentsURL.appendingPathComponent(pickedPDFURL.lastPathComponent)
+                
+                try FileManager.default.copyItem(at: pickedPDFURL, to: destinationURL)
+                
+                // İndirme başarılı oldu
+                print("PDF dosyası başarıyla indirildi. Yol: \(destinationURL.absoluteString)")
+                
+            
+            } catch {
+                // İndirme hatası
+                print("PDF dosyası indirilemedi. Hata: \(error.localizedDescription)")
+            }
+        }
+    }
    
     
 }
+// Örnek bir buton veya herhangi bir kullanıcı etkileşimi için bir fonksiyon
+  

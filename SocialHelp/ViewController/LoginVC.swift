@@ -22,17 +22,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ error in
-            let message =  self.addAlert(title: "UYARI", message: error.element!)
-            self.present(message, animated: true, completion: nil)
-        }).disposed(by: disposeBag)
-        
-        setBackgroundImage(imageName: "back.jpeg")
+//        fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ error in
+//            let message =  self.addAlert(title: "UYARI", message: error.element!)
+//            self.present(message, animated: true, completion: nil)
+//        }).disposed(by: disposeBag)
+//        
+         setBackgroundImage(imageName: "back.jpeg")
     }
     
     @IBAction func loginButtom(_ sender: Any) {
         
         if mailTextfiled.text != "" && PswrdTextfiled.text != "" {
+        
             
             if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
                 fetch.userLogin(email: email, password: password)

@@ -51,6 +51,7 @@ class SigninVC: UIViewController {
                 self.personJob.text  = ""
                 self.personBirthDate.text = ""
                 self.personPhone.text = ""
+                self.personPassAgain.text = ""
                 
                 
             } else{
@@ -60,13 +61,7 @@ class SigninVC: UIViewController {
             }
             
         }).disposed(by: disposeBag)
-        
-        self.fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ errorString in
-            let cevapSuccesFalse =  self.addAlert(title: "UYARI", message: errorString.element ?? "")
-            self.present(cevapSuccesFalse, animated: true, completion: nil)
-            
-        }).disposed(by: disposeBag)
-        
+
         
     }
     

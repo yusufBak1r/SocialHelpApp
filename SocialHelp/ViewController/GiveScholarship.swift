@@ -7,15 +7,19 @@
 
 import UIKit
 
-class SettingVC: UIViewController {
+class GiveScholarship: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackgroundImage(imageName: "back.jpeg")
 
         // Do any additional setup after loading the view.
     }
     
 
-   
+    @IBAction func Back(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 
 }

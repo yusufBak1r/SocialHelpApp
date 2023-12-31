@@ -20,15 +20,7 @@ struct User :Codable{
         self.password = password
         self.phone = phohe
     }
-    var user: User {
-           get {
-               return self // Örnek olarak kendisini döndürdük
-           }
-           set {
-               // Belirli bir işlem yapılabilir, ancak bu örnekte boş bıraktık
-           }
-       }
-    
+   
     
 
 }

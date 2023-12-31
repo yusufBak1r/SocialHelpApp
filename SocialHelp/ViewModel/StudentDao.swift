@@ -13,6 +13,8 @@ class StudentDao{
     
     let  studentData : PublishSubject<StudentAnswer> = PublishSubject()
     let  studentSignUp : PublishSubject<StudentAnswerSignin> = PublishSubject()
+    let isloading : PublishSubject<Bool> = PublishSubject()
+    let transcript : PublishSubject<Answer> = PublishSubject()
     
     let networkign = APIwebService()
    
@@ -27,12 +29,14 @@ class StudentDao{
             "identityNumber": student.identityNumber,
             "hasTranskript": student.hasTranskript,
             "scholarship": student.schorlarship]
+       
         
         networkign.makeBodyRequest(url: Constants.EnPointURL.studentSignUp.rawValue, method: "POST", responseType: StudentAnswerSignin.self, parameters: parametters, completion: {response in
             switch response {
 
             case .success(let data):
                 self.studentSignUp.onNext(data)
+             
             case .failure(let error ):
                 print(error)
                 
@@ -52,6 +56,7 @@ class StudentDao{
             switch response {
             case .success(let data):
                 self.studentData.onNext(data)
+                print(StudentAnswer.self)
             case .failure(let error):
             print(error)
                 
@@ -62,24 +67,17 @@ class StudentDao{
     }
     
     
-    func Transkriptfetch (base64:String,studentID:Int,term :String) {
+    func transcriptLoading (base64:String,studentID:Int,term :String) {
        
         let params :[String:Any] = [
-        
             "student":[
-            
-                "id":studentID
-            
-            ],
-        
+                "id":studentID],
             "term":term,
-            "transcriptPdf":base64
-        
-        
-        ]
+            "transcriptPdf":base64]
         self.networkign.makeBodyRequest(url: Constants.EnPointURL.Transkriptadd.rawValue, method: "POST", responseType: Answer.self, parameters: params, completion: { response in
             switch response {
             case .success(let data):
+                self.transcript.onNext(data)
                 print(data)
             case .failure(let error ):
                 print(error)
@@ -89,6 +87,20 @@ class StudentDao{
 
         })
 
+    }
+    func transcriptDownload(id :Int) {
+        
+        networkign.makeGetRequest(url: "http://localhost:8090/api/student/transcript{id}?studentId=id", responseType: TranskirptAnswer.self, completion: { response in
+            switch response {
+            case .success(let data):
+                print(data)
+            case .failure(let error ):
+                print(error)
+
+            }
+            
+            
+        })
     }
     
 }

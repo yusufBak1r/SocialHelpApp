@@ -8,25 +8,32 @@
 import UIKit
 import RxSwift
 import RxCocoa
-class GiveScholarship: UIViewController {
+class StudentList: UIViewController {
     
    
+  
     var  cellRowatName = ""
-    
- let viewModel = StudentDao()
+    var selectedID = 0
+     let viewModel = StudentDao()
     var listStdent: [Datum] = []
+    var filteredArr : [Datum] = []
+    var searching:Bool?
+    
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableViewCell: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackgroundImage(imageName: "back.jpeg")
-        // Do any additional setup after loading the view.
+      
         tableViewCell.delegate = self
         tableViewCell.dataSource = self
+        searchBar.delegate = self
 //        Delegate Deseni
 //        Bir nesnenin başka bir nesne için görevlerini gerçekleştirmesine olanak tanır.
         
         viewModel.getAllStudent()
         studentList()
+                 
     }
     func studentList () {
         viewModel.studentData.observe(on: MainScheduler.asyncInstance).subscribe({ list in
@@ -44,26 +51,43 @@ class GiveScholarship: UIViewController {
 
 }
 
-extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
+extension  StudentList:UITableViewDataSource,UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listStdent.count
+        if (searching ?? false ){
+          return   filteredArr.count
+        }else{
+            return  listStdent.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewCell.dequeueReusableCell(withIdentifier: "CellSc", for: indexPath) as! SchalorshipGiveCell
-        cell.StudentTextLabel.text = listStdent[indexPath.row].name
-        cell.promise.text = listStdent[indexPath.row].phone
+        if (!(searching ?? false)){
+          
+            cell.StudentTextLabel.text = listStdent[indexPath.row].name
+            cell.promise.text = listStdent[indexPath.row].email
+        }else {
+            cell.StudentTextLabel.text = filteredArr[indexPath.row].name
+        }
+         return cell
         
-        return cell
+        
     }
     
     
     //    toStudentDetails
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellRowatName  =   listStdent[indexPath.row].name
+        if (!(searching ?? false)) {
+            cellRowatName  =   listStdent[indexPath.row].name
+            selectedID = listStdent[indexPath.row].id
+        }else{
+            cellRowatName  =   filteredArr[indexPath.row].name
+            selectedID = filteredArr[indexPath.row].id
+        }
+       
         performSegue(withIdentifier:"toStudentDetails" , sender: nil)
 //        Adaptor Deseni
 //        Farklı arayüzleri veya sınıfları birbirine uyumlu hale getirmek için kullanılır.
@@ -78,6 +102,9 @@ extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
                 if let studentDetailsVC = navigationController.topViewController as? StudentDetailsVC {
                     // Burada studentDetailsVC ile ilgili işlemler yapabilirsiniz
                     studentDetailsVC.selectedName = cellRowatName
+                    studentDetailsVC.selectedIDStudentDetailsVC = selectedID
+                    
+                    
                 }
                 
                 
@@ -86,4 +113,20 @@ extension  GiveScholarship:UITableViewDataSource,UITableViewDelegate{
              
         }
     }
+    
+    
 }
+extension StudentList:UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchText.isEmpty) {
+            filteredArr = listStdent
+        }else {
+            filteredArr = listStdent.filter{$0.name.lowercased().contains(searchText.lowercased())}
+        }
+        
+        searching = true
+        tableViewCell.reloadData()
+        }
+        
+    }
+

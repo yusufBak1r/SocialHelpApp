@@ -19,14 +19,16 @@ struct StudentAnswerSignin :Codable{
 }
  struct DatumStudent :Codable{
         let id :Int
+        let email: String
         let identityNumber: String
-        let hasTranskript: Bool
         let password: String
         let birthOfDateYear: Int
         let phone, name, surname: String
         let scholarship: Bool
-        let email: String
+      let hasTranskript: Bool
+       
      init(identityNumber: String, hasTranskript: Bool, password: String, birthOfDateYear: Int, phone: String, name: String, surname: String, scholarship: Bool, email: String,id:Int) {
+        self.id = id
         self.identityNumber = identityNumber
         self.hasTranskript = hasTranskript
         self.password = password
@@ -36,8 +38,21 @@ struct StudentAnswerSignin :Codable{
         self.surname = surname
         self.scholarship = scholarship
         self.email = email
-         self.id = id 
+      
     }
+     init(from decoder: Decoder) throws {
+         let container = try decoder.container(keyedBy: CodingKeys.self)
+         self.id = try container.decode(Int.self, forKey: .id)
+         self.email = try container.decode(String.self, forKey: .email)
+         self.identityNumber = try container.decode(String.self, forKey: .identityNumber)
+         self.password = try container.decode(String.self, forKey: .password)
+         self.birthOfDateYear = try container.decode(Int.self, forKey: .birthOfDateYear)
+         self.phone = try container.decode(String.self, forKey: .phone)
+         self.name = try container.decode(String.self, forKey: .name)
+         self.surname = try container.decode(String.self, forKey: .surname)
+         self.scholarship = try container.decode(Bool.self, forKey: .scholarship)
+         self.hasTranskript = try container.decode(Bool.self, forKey: .hasTranskript)
+     }
     }
     
 
