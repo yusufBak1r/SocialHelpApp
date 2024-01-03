@@ -15,6 +15,8 @@ class StudentDao{
     let  studentSignUp : PublishSubject<StudentAnswerSignin> = PublishSubject()
     let isloading : PublishSubject<Bool> = PublishSubject()
     let transcript : PublishSubject<Answer> = PublishSubject()
+    let trancsriptGett: PublishSubject<TranskirptAnswer> = PublishSubject()
+    let scholarShipe :PublishSubject<Answer> = PublishSubject()
     
     let networkign = APIwebService()
    
@@ -77,7 +79,6 @@ class StudentDao{
         self.networkign.makeBodyRequest(url: Constants.EnPointURL.Transkriptadd.rawValue, method: "POST", responseType: Answer.self, parameters: params, completion: { response in
             switch response {
             case .success(let data):
-                self.transcript.onNext(data)
                 print(data)
             case .failure(let error ):
                 print(error)
@@ -90,14 +91,36 @@ class StudentDao{
     }
     func transcriptDownload(id :Int) {
         
-        networkign.makeGetRequest(url: "http://localhost:8090/api/student/transcript{id}?studentId=id", responseType: TranskirptAnswer.self, completion: { response in
+        networkign.makeGetRequest(url: "http://localhost:8090/api/student/transcript/{id}?studentId=\(id)", responseType: TranskirptAnswer.self, completion: { response in
             switch response {
             case .success(let data):
-                print(data)
+                self.trancsriptGett.onNext(data)
             case .failure(let error ):
                 print(error)
 
             }
+            
+            
+        })
+    }
+   
+        
+        
+    
+    func scholarshipGive (amount:Int,statement:String,date:String,personID:Int,stutentID:Int,sholarShipeName:String) {
+        networkign.makeBodyRequest(url: "http://localhost:8090/api/person/giveScholarsip?amount=\(amount)4&description=\(statement)&localDate=\(date)&name=\(sholarShipeName)&personId=\(personID)&studentId=\(stutentID)", method: "POST", responseType: Answer.self, parameters: [:], completion: {     response in
+            
+            switch response {
+            case .success(let data):
+                self.scholarShipe.onNext(data)
+            case .failure(let error ):
+                print(error)
+            }
+            
+            
+            
+            
+            
             
             
         })

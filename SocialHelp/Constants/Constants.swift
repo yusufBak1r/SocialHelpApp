@@ -18,7 +18,8 @@ class Constants {
         case Transkriptadd = "http://localhost:8090/api/student/addTranscript" // öğrenci transcriptini yükleme
         case studentSignUp = "http://localhost:8090/api/student/signUp"
         case scholarship = "http://localhost:8090/api/scholarship/getAll" // verilen tüm bursları getirir
-        case TranskriptGet = "http://localhost:8090/api/student/transcript{id}?studentId=id"
+        case TranskriptGet = "http://localhost:8090/api/student/transcript/{id}?studentId={}"
+case scholarshipGive = "http://localhost:8090/api/person/giveScholarsip?amount=344&description=leimklm%C3%BCkieml&localDate=2001-07-07&name=a%C3%A7%C4%B1z%20halaaaaqalalalala&personId=18&studentId=84"
         
     }
     enum APIError: Error {

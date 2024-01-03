@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+
 // MARK: - Welcome
 struct TranskirptAnswer: Codable {
     let success: Bool
@@ -16,7 +18,7 @@ struct TranskirptAnswer: Codable {
 // MARK: - DataClass
 struct DataClass: Codable {
     let id: Int
-    let student: Student
+    let student: Student1
     let term, transcriptPDF: String
 
     enum CodingKeys: String, CodingKey {
@@ -26,7 +28,7 @@ struct DataClass: Codable {
 }
 
 // MARK: - Student
-struct TranskirptStudent: Codable {
+struct Student1: Codable {
     let id: Int
     let email, phone, password, name: String
     let surname: String
@@ -34,5 +36,3 @@ struct TranskirptStudent: Codable {
     let identityNumber: String
     let hasTranskript, scholarship: Bool
 }
-
-

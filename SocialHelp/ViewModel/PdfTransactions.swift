@@ -34,7 +34,7 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     
     
     
-    func decodeBase64ToPDF(base64String: String) {
+    func decodeBase64ToPDF(base64String: String) -> String{
             if let data = Data(base64Encoded: base64String) {
                 // Data objesini PDF olarak açmak için bir URL oluştur
                 let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -44,13 +44,16 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
                     // Data'yı PDF dosyasına yaz
                     try data.write(to: pdfURL)
                     print("Base64'den PDF'ye dönüştürüldü: \(pdfURL)")
+                    return pdfURL.absoluteString
                     
                     // PDF dosyasını kullanabilirsiniz (örneğin, görüntüleyebilirsiniz)
                     // Örneğin: UIWebView, UIDocumentInteractionController, QuickLook gibi araçlarla
                 } catch {
                     print("Dosyaya yazarken hata oluştu: \(error)")
+                    return ""
                 }
             }
+        return "" 
         }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
