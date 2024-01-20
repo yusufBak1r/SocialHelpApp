@@ -10,8 +10,8 @@ import RxSwift
 
 class ViewController: UIViewController {
    
-    let fetch = UserDao()
-    let fetchStudent =  StudentDao()
+
+    let fetchStudent =  StudentManager()
     let disposeBag = DisposeBag()
     @IBOutlet weak var PswrdTextfiled: UITextField!
     @IBOutlet weak var mailTextfiled: UITextField!
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
+        PswrdTextfiled.isSecureTextEntry = true
         
 //        fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ error in
 //            let message =  self.addAlert(title: "UYARI", message: error.element!)
@@ -35,23 +36,23 @@ class ViewController: UIViewController {
         if mailTextfiled.text != "" && PswrdTextfiled.text != "" {
         
             
-            if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
-                fetch.userLogin(email: email, password: password)
-             
-                fetch.login.observe(on: MainScheduler.asyncInstance).subscribe  { [self]answer in
-                    if  answer.element?.success == true {
-                        self.performSegue(withIdentifier: "toHome", sender: nil)
-                        
-                    }else{
-                        let message =  self.addAlert(title: "UYARI", message: "\(String(describing: answer.element!.message))")
-                        self.present(message, animated: true, completion: nil)
-                        self.mailTextfiled.text = ""
-                        PswrdTextfiled.text = ""
-                        
-                    }
-                    
-                }.disposed(by: disposeBag)
-            }
+//            if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
+//                fetch.userLogin(email: email, password: password)
+////             viewModel gelen login cevabı burda alert mesajı ile işliyorum
+//                fetch.login.observe(on: MainScheduler.asyncInstance).subscribe  { [self]answer in
+//                    if  answer.element?.success == true {
+//                        self.performSegue(withIdentifier: "toHome", sender: nil)
+//                        
+//                    }else{
+//                        let message =  self.addAlert(title: "UYARI", message: "\(String(describing: answer.element!.message))")
+//                        self.present(message, animated: true, completion: nil)
+//                        self.mailTextfiled.text = ""
+//                        PswrdTextfiled.text = ""
+//                        
+//                    }
+//                    
+//                }.disposed(by: disposeBag)
+//            }
             
         }
         else {

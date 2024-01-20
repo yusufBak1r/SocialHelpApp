@@ -31,4 +31,10 @@ case scholarshipGive = "http://localhost:8090/api/person/giveScholarsip?amount=3
         // Diğer olası hata durumlarını buraya ekleyebilirsiniz
     }
 
+    
+    enum ErrorTypes: String, Error {
+        case invalidData = "Invalid data"
+        case invalidURL = "Invalid url"
+        case generalError = "An error happened"
+    }
 }

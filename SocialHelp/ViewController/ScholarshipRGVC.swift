@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 class ScholarshipRegistration: UIViewController {
     let disposeBag = DisposeBag()
-   var fetch = StudentDao()
+    let fetch = StudentViewModel()
+    
     var studntModel :StudentAnswerSignin?
     var transcriptString:String = ""
     @IBOutlet var studentEmail: UITextField!
@@ -27,10 +28,11 @@ class ScholarshipRegistration: UIViewController {
         
         super.viewDidLoad()
  
-            setBackgroundImage(imageName: "back.jpeg")
+        setBackgroundImage(imageName: "back.jpeg")
         View1.layer.cornerRadius = 20
         aboutME.layer.cornerRadius = 20
         View3.layer.cornerRadius = 15
+        studentPassword.isSecureTextEntry = true
 
        
        
@@ -39,11 +41,14 @@ class ScholarshipRegistration: UIViewController {
     @IBAction func StudentSignup(_ sender: Any) {
         
         if studentPassword.text != "",DateOfBirth.text != "",studentName.text  != "" ,studentName.text != "" ,studentLastName.text != ""   {
-            let userStudent = User(email: studentEmail.text!, password: studentPassword.text!, phohe: "00000000000")
+         
             
-            let studentSignup = Student(user: userStudent, name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false)
+            
+            let studentSignUp = Student(name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false, email: studentEmail.text!,  phone: studentPassword.text!, password: "00000000000")
+            
+
             binding()
-            fetch.StudentSignUP(student: studentSignup)
+            fetch.studentSignin(student: studentSignUp)
            
             
             
@@ -59,30 +64,28 @@ class ScholarshipRegistration: UIViewController {
     func binding() {
         
         
-        fetch.studentSignUp.observe(on: MainScheduler.asyncInstance).subscribe{ answer in
-            
-            if answer.success == true {
-                self.studntModel = answer
-               
-                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message )
-                self.present(messageSignAllert, animated: true, completion: nil)
-                self.studentPassword.text = ""
-                self.DateOfBirth.text = ""
-                self.studentLastName.text = ""
-                self.studentName.text = ""
-                self.studentEmail.text = ""
-                
-    //              Decorator Deseni
-    //              Bir nesnenin işlevselliğini dinamik olarak genişletmek için kullanılır.
-    //              Örneğin, bir nesnenin davranışını sarmalayarak yeni özellikler eklemek.
-                  
-            }else if answer.success == false  {
-               
-                let messageAllert = self.addAlert(title: "UYARI", message: answer.message )
-                self.present(messageAllert, animated: true, completion: nil)
-            }
-            
-        }.disposed(by: disposeBag)
+//        fetch.studentSignUp.observe(on: MainScheduler.asyncInstance).subscribe{ answer in
+//            
+//            if answer.success == true {
+//                self.studntModel = answer
+//               
+//                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message )
+//                self.present(messageSignAllert, animated: true, completion: nil)
+//                self.studentPassword.text = ""
+//                self.DateOfBirth.text = ""
+//                self.studentLastName.text = ""
+//                self.studentName.text = ""
+//                self.studentEmail.text = ""
+//                
+//            
+//                  
+//            }else if answer.success == false  {
+//               
+//                let messageAllert = self.addAlert(title: "UYARI", message: answer.message )
+//                self.present(messageAllert, animated: true, completion: nil)
+//            }
+//            
+//        }.disposed(by: disposeBag)
         
         
         
@@ -90,14 +93,14 @@ class ScholarshipRegistration: UIViewController {
     @IBAction func PdfSec(_ sender: Any) {
         
         
-        
+//        pdf seçimi için fonsksiyonu
         pickDocument()
     }
     
     @IBAction func scholarshipComplete(_ sender: Any) {
         if  aboutME.text != "" {
            
-            fetch.transcriptLoading(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: aboutME.text)
+//            fetch.transcriptLoading(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: aboutME.text)
             
             
             
@@ -111,6 +114,7 @@ class ScholarshipRegistration: UIViewController {
     
 
 }
+// kulanıcını pdf dosyasını seçmesi için oluşturduğum delagete ile fonksiyonları burda çalışıyor
 extension ScholarshipRegistration :UIDocumentPickerDelegate{
     
     func pickDocument() {

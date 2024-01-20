@@ -15,7 +15,7 @@
 		F04D91872B2F270B00A13776 /* TranskriptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D91862B2F270B00A13776 /* TranskriptModel.swift */; };
 		F04D91892B2F2A8C00A13776 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D91882B2F2A8C00A13776 /* Admin.swift */; };
 		F04D918B2B2F46EE00A13776 /* StudentAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D918A2B2F46EE00A13776 /* StudentAnswer.swift */; };
-		F04D918D2B2F5CA600A13776 /* StudentDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D918C2B2F5CA600A13776 /* StudentDao.swift */; };
+		F04D918D2B2F5CA600A13776 /* StudentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D918C2B2F5CA600A13776 /* StudentManager.swift */; };
 		F04D91902B2F5DA100A13776 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F04D918F2B2F5DA100A13776 /* RxCocoa */; };
 		F04D91922B2F5DA100A13776 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F04D91912B2F5DA100A13776 /* RxSwift */; };
 		F04DDEB82B3C9CF800E5672E /* TranskirptAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04DDEB72B3C9CF800E5672E /* TranskirptAnswer.swift */; };
@@ -38,6 +38,7 @@
 		F0AB30F32B307FFD00A43A95 /* SchalorshipGiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AB30F22B307FFC00A43A95 /* SchalorshipGiveCell.swift */; };
 		F0AB93F22B2C855E000F359A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0AB93F12B2C855E000F359A /* Alamofire */; };
 		F0AB93F42B2C8628000F359A /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AB93F32B2C8628000F359A /* Answer.swift */; };
+		F0B51BCD2B586DDA000629FB /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B51BCC2B586DDA000629FB /* UserViewModel.swift */; };
 		F0C0DC892AFCE36300857C5A /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC882AFCE36300857C5A /* Student.swift */; };
 		F0C0DC8B2AFCE42D00857C5A /* ScholarshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */; };
 		F0D41A802AFD16DE002E1BF5 /* GiveScholarship.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D41A7F2AFD16DE002E1BF5 /* GiveScholarship.swift */; };
@@ -48,7 +49,8 @@
 		F0E1D57E2AFBC58B006C5329 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0E1D57D2AFBC58B006C5329 /* GoogleService-Info.plist */; };
 		F0E1D58B2AFBDBE4006C5329 /* SignİnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E1D58A2AFBDBE4006C5329 /* SignİnVC.swift */; };
 		F0E5FC822B12DBD600E1F236 /* DonationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E5FC812B12DBD600E1F236 /* DonationCell.swift */; };
-		F0F5960D2B30A3C70026CD78 /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5960C2B30A3C70026CD78 /* UserDao.swift */; };
+		F0E7AF612B537B460037AE4C /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E7AF602B537B460037AE4C /* StudentViewModel.swift */; };
+		F0F5960D2B30A3C70026CD78 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F5960C2B30A3C70026CD78 /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +79,7 @@
 		F04D91862B2F270B00A13776 /* TranskriptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranskriptModel.swift; sourceTree = "<group>"; };
 		F04D91882B2F2A8C00A13776 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		F04D918A2B2F46EE00A13776 /* StudentAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAnswer.swift; sourceTree = "<group>"; };
-		F04D918C2B2F5CA600A13776 /* StudentDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDao.swift; sourceTree = "<group>"; };
+		F04D918C2B2F5CA600A13776 /* StudentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentManager.swift; sourceTree = "<group>"; };
 		F04DDEB72B3C9CF800E5672E /* TranskirptAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranskirptAnswer.swift; sourceTree = "<group>"; };
 		F05D56392AF8EE1800EAB0E1 /* SocialHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D563C2AF8EE1800EAB0E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		F0A8E8FD2B2B79F4007DE877 /* TabbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		F0AB30F22B307FFC00A43A95 /* SchalorshipGiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchalorshipGiveCell.swift; sourceTree = "<group>"; };
 		F0AB93F32B2C8628000F359A /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		F0B51BCC2B586DDA000629FB /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		F0C0DC882AFCE36300857C5A /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		F0C0DC8A2AFCE42D00857C5A /* ScholarshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScholarshipModel.swift; sourceTree = "<group>"; };
 		F0D41A7F2AFD16DE002E1BF5 /* GiveScholarship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveScholarship.swift; sourceTree = "<group>"; };
@@ -111,7 +114,8 @@
 		F0E1D57D2AFBC58B006C5329 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0E1D58A2AFBDBE4006C5329 /* SignİnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignİnVC.swift"; sourceTree = "<group>"; };
 		F0E5FC812B12DBD600E1F236 /* DonationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationCell.swift; sourceTree = "<group>"; };
-		F0F5960C2B30A3C70026CD78 /* UserDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
+		F0E7AF602B537B460037AE4C /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		F0F5960C2B30A3C70026CD78 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +149,19 @@
 		F01B7E2D2B2C74EA00ED9A1C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F04D918C2B2F5CA600A13776 /* StudentDao.swift */,
-				F0F5960C2B30A3C70026CD78 /* UserDao.swift */,
+				F0E7AF602B537B460037AE4C /* StudentViewModel.swift */,
+				F0B51BCC2B586DDA000629FB /* UserViewModel.swift */,
 				F01B7E2E2B2C754900ED9A1C /* PdfTransactions.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F03A0ED62B5C17160033314A /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				F03D50A62B17D2840005646C /* APIwebService.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		F04DDEB92B3C9D0100E5672E /* Transkript */ = {
@@ -267,7 +279,9 @@
 		F0E1D5752AFAAA4B006C5329 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				F03D50A62B17D2840005646C /* APIwebService.swift */,
+				F03A0ED62B5C17160033314A /* APIManager */,
+				F04D918C2B2F5CA600A13776 /* StudentManager.swift */,
+				F0F5960C2B30A3C70026CD78 /* UserManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -455,12 +469,12 @@
 				F04D918B2B2F46EE00A13776 /* StudentAnswer.swift in Sources */,
 				F0A8E8FE2B2B79F4007DE877 /* TabbarView.swift in Sources */,
 				F0C0DC892AFCE36300857C5A /* Student.swift in Sources */,
-				F0F5960D2B30A3C70026CD78 /* UserDao.swift in Sources */,
+				F0F5960D2B30A3C70026CD78 /* UserManager.swift in Sources */,
 				F04D91832B2F122E00A13776 /* Application.swift in Sources */,
 				F04D91892B2F2A8C00A13776 /* Admin.swift in Sources */,
 				F05D56412AF8EE1800EAB0E1 /* LoginVC.swift in Sources */,
 				F0E5FC822B12DBD600E1F236 /* DonationCell.swift in Sources */,
-				F04D918D2B2F5CA600A13776 /* StudentDao.swift in Sources */,
+				F04D918D2B2F5CA600A13776 /* StudentManager.swift in Sources */,
 				F08AFC1D2B322297007069EE /* PersonAnswer.swift in Sources */,
 				F01B7E2F2B2C754900ED9A1C /* PdfTransactions.swift in Sources */,
 				F0E1D5732AFAA5B4006C5329 /* DonationVC.swift in Sources */,
@@ -482,6 +496,8 @@
 				F05D563F2AF8EE1800EAB0E1 /* SceneDelegate.swift in Sources */,
 				F09A44242B3C632E000CCF05 /* StudentAnswerSignin.swift in Sources */,
 				F0AB30F32B307FFD00A43A95 /* SchalorshipGiveCell.swift in Sources */,
+				F0E7AF612B537B460037AE4C /* StudentViewModel.swift in Sources */,
+				F0B51BCD2B586DDA000629FB /* UserViewModel.swift in Sources */,
 				F0A8E8F92B2B79CA007DE877 /* ScholarshipRGVC.swift in Sources */,
 				F0D41A802AFD16DE002E1BF5 /* GiveScholarship.swift in Sources */,
 			);

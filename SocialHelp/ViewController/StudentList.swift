@@ -14,7 +14,7 @@ class StudentList: UIViewController {
   
     var  cellRowatName = ""
     var selectedID = 0
-     let viewModel = StudentDao()
+     let viewModel = StudentManager()
     var listStdent: [Datum] = []
     var filteredArr : [Datum] = []
     var searching:Bool?
@@ -31,21 +31,21 @@ class StudentList: UIViewController {
 //        Delegate Deseni
 //        Bir nesnenin başka bir nesne için görevlerini gerçekleştirmesine olanak tanır.
         
-        viewModel.getAllStudent()
-        studentList()
+        
+//        studentList()
                  
     }
-    func studentList () {
-        viewModel.studentData.observe(on: MainScheduler.asyncInstance).subscribe({ list in
-            self.listStdent =  list.event.element?.data ?? []
-            self.tableViewCell.reloadData()
-            print("tüm öğrneciler getiridi \(self.listStdent.count)")
-            
-            
-            
-        })
-        
-    }
+//    func studentList () {
+//        viewModel.studentData.observe(on: MainScheduler.asyncInstance).subscribe({ list in
+//            self.listStdent =  list.event.element?.data ?? []
+//            self.tableViewCell.reloadData()
+//            print("tüm öğrneciler getiridi \(self.listStdent.count)")
+//            
+//            
+//            
+//        })
+//        
+//    }
 
    
 
@@ -83,6 +83,7 @@ extension  StudentList:UITableViewDataSource,UITableViewDelegate{
         if (!(searching ?? false)) {
             cellRowatName  =   listStdent[indexPath.row].name
             selectedID = listStdent[indexPath.row].id
+            
         }else{
             cellRowatName  =   filteredArr[indexPath.row].name
             selectedID = filteredArr[indexPath.row].id
@@ -103,6 +104,7 @@ extension  StudentList:UITableViewDataSource,UITableViewDelegate{
                     // Burada studentDetailsVC ile ilgili işlemler yapabilirsiniz
                     studentDetailsVC.selectedName = cellRowatName
                     studentDetailsVC.selectedIDStudentDetailsVC = selectedID
+                    
                     
                     
                 }

@@ -10,9 +10,9 @@ import RxSwift
 import RxCocoa
 
 class GiveScholarship: UIViewController {
- let fetch = StudentDao()
+ let fetch = StudentViewModel()
     let disposedBag = DisposeBag()
-    let fetchUser = UserDao()
+
     @IBOutlet var dateScholarshipe: UIDatePicker!
     @IBOutlet var statment: UITextView!
     @IBOutlet var amount: UITextField!
@@ -36,9 +36,9 @@ class GiveScholarship: UIViewController {
         if statment.text != "" && amount.text != "" && scholarshipName.text != "" {
             
             if let convertIntAmount = Int(amount.text!) {
-                binding ()
-                fetch.scholarshipGive(amount: convertIntAmount, statement:statment.text , date:"2001-07-07", personID: 1, stutentID: studentId, sholarShipeName:scholarshipName.text! )
-                     
+//                binding ()
+//                fetch.scholarshipGive(amount: convertIntAmount, statement:statment.text , date:"2001-07-07", personID: 1, stutentID: studentId, sholarShipeName:scholarshipName.text! )
+//                     
             }
             
         }else{
@@ -47,26 +47,26 @@ class GiveScholarship: UIViewController {
         }
     }
     
-    func binding () {
-        fetch.scholarShipe.observe(on: MainScheduler.asyncInstance).subscribe({ data in
-            
-            if data.element?.success == true {
-                let message =  self.addAlert(title: "UYARI", message: "Burs verme işlemi Başarılı")
-                self.present(message, animated: true, completion: nil)
-                self.scholarshipName.text = ""
-                self.amount.text = ""
-                self.statment.text = ""
-                
-            }else{
-                let message =  self.addAlert(title: "UYARI", message: data.element?.message ?? "Hata")
-                self.present(message, animated: true, completion: nil)
-            }
-            
-            
-            
-            
-        }).disposed(by: disposedBag)
-        
-    }
+//    func binding () {
+//        fetch.scholarShipe.observe(on: MainScheduler.asyncInstance).subscribe({ data in
+//            
+//            if data.element?.success == true {
+//                let message =  self.addAlert(title: "UYARI", message: "Burs verme işlemi Başarılı")
+//                self.present(message, animated: true, completion: nil)
+//                self.scholarshipName.text = ""
+//                self.amount.text = ""
+//                self.statment.text = ""
+//                
+//            }else{
+//                let message =  self.addAlert(title: "UYARI", message: data.element?.message ?? "Hata")
+//                self.present(message, animated: true, completion: nil)
+//            }
+//            
+//            
+//            
+//            
+//        }).disposed(by: disposedBag)
+//        
+//    }
    
 }

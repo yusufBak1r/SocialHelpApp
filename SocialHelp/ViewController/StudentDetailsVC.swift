@@ -11,7 +11,7 @@ import RxSwift
 import PDFKit
 import RxCocoa
 class StudentDetailsVC: UIViewController, UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate  {
-    let fetch = StudentDao()
+    let fetch = StudentManager()
     let disposeBag = DisposeBag()
     let transcriptBase64Decoder = PdfTransactions()
     var  selectedName =  ""
@@ -29,10 +29,10 @@ class StudentDetailsVC: UIViewController, UIDocumentPickerDelegate, UIDocumentIn
         setBackgroundImage(imageName: "back.jpeg")
         
         studentNameLabel.text = selectedName
-     
+        aboutMeLabel.text = "imelakmlkeimlakeimkamkaeikmiaelimekacvmemjvkamgğliükiülmykcvm"
         universityLabel.text = selectedUniversity
-        binding()
-        fetch.transcriptDownload(id: 152)
+//        binding()
+//        fetch.transcriptDownload(id: 152)
 
    
       
@@ -43,21 +43,21 @@ class StudentDetailsVC: UIViewController, UIDocumentPickerDelegate, UIDocumentIn
             return self
         }
     
-    func binding() {
-        fetch.trancsriptGett.observe(on: MainScheduler.asyncInstance).subscribe({ data in
-            
-            if data.element?.success == true {
-                print("çalışıyor rx swift")
-                self.tratranscriptDcoder = self.transcriptBase64Decoder.decodeBase64ToPDF(base64String:  data.element?.data.transcriptPDF ?? "")
-                self.aboutMeLabel.text =   data.element?.data.term ?? ""
-
-            }else{
-                print("rx Swift çalışmadı")
-            }
-            
-            
-        }).disposed(by: disposeBag)
-    }
+//    func binding() {
+//        fetch.trancsriptGett.observe(on: MainScheduler.asyncInstance).subscribe({ data in
+//            
+//            if data.element?.success == true {
+//                print("çalışıyor rx swift")
+//                self.tratranscriptDcoder = self.transcriptBase64Decoder.decodeBase64ToPDF(base64String:  data.element?.data.transcriptPDF ?? "")
+//                self.aboutMeLabel.text =   data.element?.data.term ?? ""
+//
+//            }else{
+//                print("rx Swift çalışmadı")
+//            }
+//            
+//            
+//        }).disposed(by: disposeBag)
+//    }
     @IBAction func buttomBack(_ sender: Any) {
         dismiss(animated: true)
     }

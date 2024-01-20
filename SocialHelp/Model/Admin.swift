@@ -7,12 +7,13 @@
 
 import Foundation
 // Get Post Put
-class Admin {
-    var user: User
+class Admin:User {
+
     let permission :String
-    init(user: User, permission: String) {
-        self.user = user
+    init( permission: String, email: String, password: String, phone: String) {
+
         self.permission = permission
+        super.init(email: email, phone: phone, password: password)
     }
     
    

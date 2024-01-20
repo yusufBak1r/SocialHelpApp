@@ -6,21 +6,15 @@
 //
 
 import Foundation
-protocol  UserProtocol {
-    var user : User { get set }
-//    Factory Deseni
-//    Nesne oluşturmayı merkezi bir noktaya taşır ve farklı alt sınıfların oluşturulmasını soyutlar.
-}
-struct User :Codable{
+class User {
     var email: String
     var phone :String
     var password: String
-    init(email: String, password: String,phohe:String) {
+    init(email: String, phone: String, password: String) {
         self.email = email
+        self.phone = phone
         self.password = password
-        self.phone = phohe
     }
-   
     
 
 }

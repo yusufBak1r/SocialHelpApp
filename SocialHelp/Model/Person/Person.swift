@@ -7,34 +7,20 @@
 
 import Foundation
 //  burs verecek kişi  --- Post -- Get  kulanıcı kayıt olucak kişi
-class Person :Codable,Identifiable,UserProtocol{
-    var user: User
-    var name:String
-    var surame : String
-    var birthOfDateYear : Int
+class Person: User {
+    var id : Int = 0
+    var name: String
+    var surname: String
+    var birthOfYear: Int
     var identityNumber = 0
-    var job :String
+    var job: String
     
-    init(user: User, name: String, surame: String, birthOfDateYear: Int, job: String) {
-      
+    init(name: String, surname: String, birthOfYear: Int, job: String, email: String, password: String, phone: String) {
+       
         self.name = name
-        self.surame = surame
-        self.birthOfDateYear = birthOfDateYear
+        self.surname = surname
+        self.birthOfYear = birthOfYear
         self.job = job
-        self.user = user
-        
+        super.init(email: email, phone: phone, password: password)
     }
-   
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.user = try container.decode(User.self, forKey: .user)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.surame = try container.decode(String.self, forKey: .surame)
-        self.birthOfDateYear = try container.decode(Int.self, forKey: .birthOfDateYear)
-        self.identityNumber = try container.decode(Int.self, forKey: .identityNumber)
-        self.job = try container.decode(String.self, forKey: .job)
-    }
-   
-    
-    
 }

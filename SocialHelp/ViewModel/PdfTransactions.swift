@@ -11,14 +11,16 @@ import PDFKit
 class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     static let shared = PdfTransactions()
     
-    let fetch = StudentDao()
+    let fetch = StudentManager()
     
     func  pdfData (pdfURl:URL) ->String{
         do
         {
+
             let fileData = try Data(contentsOf: pdfURl)
            
             let base64String = fileData.base64EncodedString()
+//            pdf dosyasını base64 çevirerek metin tabanlı veri tabanlarına kaydetme.
             
 
             return base64String
@@ -33,7 +35,7 @@ class PdfTransactions:UIViewController,UIDocumentPickerDelegate {
     
     
     
-    
+//    veri tabanında gelen base64 formatındaki veriyi decoder ederek pdf dönüştürür
     func decodeBase64ToPDF(base64String: String) -> String{
             if let data = Data(base64Encoded: base64String) {
                 // Data objesini PDF olarak açmak için bir URL oluştur

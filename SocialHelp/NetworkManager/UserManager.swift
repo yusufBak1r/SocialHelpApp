@@ -9,9 +9,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Alamofire
-class UserDao {
-//    Observer (Gözlemci) Deseni
-//    Bir nesnenin durumu değiştiğinde, ona bağlı olan diğer nesnelerin haberdar olmasını sağlar.
+
+class UserManager {
     let  login : PublishSubject<Answer> = PublishSubject()
     let  signUp : PublishSubject<PersonAnswer> = PublishSubject()
     
@@ -22,12 +21,12 @@ class UserDao {
     
     func userSigin (signinPerson : Person) {
         let parameters : [String:Any] = [
-            "email":signinPerson.user.email,
-            "phone":signinPerson.user.phone,
-            "password": signinPerson.user.password,
+            "email":signinPerson.email,
+            "phone":signinPerson.phone,
+            "password": signinPerson.password,
             "name": signinPerson.name,
-            "surname": signinPerson.surame,
-            "birthOfDateYear": signinPerson.birthOfDateYear,
+            "surname": signinPerson.surname,
+            "birthOfDateYear": signinPerson.birthOfYear,
             "identityNumber": signinPerson.identityNumber,
             "job": signinPerson.job]
        

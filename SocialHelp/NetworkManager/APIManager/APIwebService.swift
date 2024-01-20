@@ -10,14 +10,18 @@ import Alamofire
 
 protocol NetworkingAPI {
     
-    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T, Error>) -> Void)
-    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void)
+    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]?, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void)
+     func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void)
 }
 class APIwebService:NetworkingAPI {
+
     
-    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any], completion: @escaping (Result<T,Error>) -> Void) {
+    
+    static let shared = APIwebService()
+    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]? , completion: @escaping (Result<T,Constants.ErrorTypes>) -> Void) {
         
         guard let urlString = URL(string: url) else {return}
+        completion(.failure(.invalidURL))
         
         AF.request(urlString,method: HTTPMethod(rawValue: method),parameters: parameters,encoding: JSONEncoding.default).responseJSON{ response in
             debugPrint(response)
@@ -31,31 +35,33 @@ class APIwebService:NetworkingAPI {
                     let decoder = JSONDecoder()
                     let responseObject = try? decoder.decode(T.self, from: jsonData )
                         print(responseObject ?? "")
-                        if let cevap = responseObject {
-                            completion(.success(cevap))
+                        if let answer = responseObject {
+                            completion(.success(answer))
+                            
                         }else{
-                            throw NSError(domain: "Invalid JSON Data", code: 0, userInfo: nil)
+                            completion(.failure(.invalidData))
                         }
                     }
                 }catch{
                     print(error.localizedDescription)
-                    print("Error decoding JSON: \(error.localizedDescription)")
+                   
                 }
               
             case .failure(let error):
+            completion(.failure(.generalError))
                 
-                completion(.failure(error))
-                completion(.failure(Constants.APIError.serverError(statusCode: 0)))
                 
             }
             
             
         }
+       
+
     }
     
-    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void) {
         
-        guard let urlString = URL(string: url) else {completion(.failure(Constants.APIError.networkError))
+        guard let urlString = URL(string: url) else {completion(.failure(.invalidURL))
             return}
         
         
@@ -77,13 +83,13 @@ class APIwebService:NetworkingAPI {
                     
                 } catch {
                     
-                    completion(.failure(error))
-                  print("Decoder json")
+                    completion(.failure(.invalidData))
+                 
                 }
             case .failure(let error):
                 
-                completion(.failure(error))
-                completion(.failure(Constants.APIError.serverError(statusCode: 0)))
+                completion(.failure(.generalError))
+               
                 
             }
         }

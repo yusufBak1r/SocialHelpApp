@@ -12,7 +12,7 @@ class SigninVC: UIViewController {
     
     
     @IBOutlet var personEmail: UITextField!
-    let fetch = UserDao()
+   
     let disposeBag = DisposeBag()
     
    
@@ -34,33 +34,35 @@ class SigninVC: UIViewController {
         super.viewDidLoad()
         setBackgroundImage(imageName: "back.jpeg")
         // Do any additional setup after loading the view.
+        personPassword.isSecureTextEntry = true
+        personPassAgain.isSecureTextEntry = true
         
        
        
     }
     func setupBindigs() {
-        
-        fetch.signUp.observe(on: MainScheduler.asyncInstance).subscribe(onNext: { cevap in
-            if cevap.success {
-                let cevapSucces =  self.addAlert(title: "UYARI", message: cevap.message)
-                self.present(cevapSucces, animated: true, completion: nil)
-                self.personName.text = ""
-                self.personSurname.text = ""
-                self.personEmail.text = ""
-                self.personPassword.text  = ""
-                self.personJob.text  = ""
-                self.personBirthDate.text = ""
-                self.personPhone.text = ""
-                self.personPassAgain.text = ""
-                
-                
-            } else{
-                let cevapSuccesFalse =  self.addAlert(title: "UYARI", message: cevap.message)
-                self.present(cevapSuccesFalse, animated: true, completion: nil)
-               
-            }
-            
-        }).disposed(by: disposeBag)
+//        
+//        fetch.signUp.observe(on: MainScheduler.asyncInstance).subscribe(onNext: { cevap in
+//            if cevap.success {
+//                let cevapSucces =  self.addAlert(title: "UYARI", message: cevap.message)
+//                self.present(cevapSucces, animated: true, completion: nil)
+//                self.personName.text = ""
+//                self.personSurname.text = ""
+//                self.personEmail.text = ""
+//                self.personPassword.text  = ""
+//                self.personJob.text  = ""
+//                self.personBirthDate.text = ""
+//                self.personPhone.text = ""
+//                self.personPassAgain.text = ""
+//                
+//                
+//            } else{
+//                let cevapSuccesFalse =  self.addAlert(title: "UYARI", message: cevap.message)
+//                self.present(cevapSuccesFalse, animated: true, completion: nil)
+//               
+//            }
+//            
+//        }).disposed(by: disposeBag)
 
         
     }
@@ -73,11 +75,15 @@ class SigninVC: UIViewController {
         if personName.text != "" && personSurname.text != "" && personEmail.text != "" && personPassAgain.text  != "" && personJob.text  != "" && personBirthDate.text != "" && personPassword.text != "" && personPhone.text != "" {
             if personPassAgain.text  == personPassword.text  {
             
+                let personSignUp = Person(name: personName.text!, surname: personSurname.text!, birthOfYear:Int(personBirthDate.text!) ?? 0, job:  personJob.text!, email: personEmail.text!, password: personPassword.text!, phone: personPhone.text!)
                 
-                let user2 = User(email: personEmail.text!, password:  personPassword.text!, phohe: personPhone.text!)
-                let personSignUp = Person(user: user2, name: personName.text!, surame: personSurname.text!, birthOfDateYear:Int(personBirthDate.text! ) ?? 0, job: personJob.text!)
+                
+                
+//
+//                let user2 = User(email: personEmail.text!, password:  personPassword.text!, phohe: personPhone.text!)
+//                let personSignUp = Person(user: user2, name: personName.text!, surame: personSurname.text!, birthOfDateYear:Int(personBirthDate.text! ) ?? 0, job: personJob.text!)
         
-                fetch.userSigin(signinPerson: personSignUp)
+//                fetch.userSigin(signinPerson: personSignUp)
                 
                 setupBindigs()
              
