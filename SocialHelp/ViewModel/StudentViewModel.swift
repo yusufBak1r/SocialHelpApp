@@ -10,17 +10,14 @@ import RxSwift
 import RxCocoa
 class StudentViewModel {
     static let shared = StudentViewModel()
-    let errorMessage = PublishSubject<String>()
+    
     let studentData : PublishSubject<StudentAnswer> = PublishSubject()
     let studentSignUp : PublishSubject<StudentAnswerSignin> = PublishSubject()
-    
-//    
-
-    
-//    let isloading : PublishSubject<Bool> = PublishSubject()
     let transcriptFetch : PublishSubject<Answer> = PublishSubject()
-   let trancsriptGet: PublishSubject<TranskirptAnswer> = PublishSubject()
+    let trancsriptGet: PublishSubject<TranskirptAnswer> = PublishSubject()
     let scholarShipe :PublishSubject<Answer> = PublishSubject()
+   
+    
     
     func gettStudent() {
         StudentManager.shared.getAllStudent(complete: {[weak self]data,error  in
@@ -91,9 +88,12 @@ class StudentViewModel {
         })
     }
     func transcript(transcript:TranskriptModel) {
-        StudentManager.shared.transcriptLoading(base64: transcript.trancriptPdf, studentID: transcript.id, term: transcript.term, complete: {[weak self]data, error in
-            
-            
+        let params :[String:Any] = [
+            "student":[
+                "id":transcript.id],
+            "term":transcript.term,
+            "transcriptPdf":transcript.trancriptPdf]
+        StudentManager.shared.transcriptLoading(parametters: params, complete: {[weak self]data, error in
             if let error = error {
              print(error)
             }else {
@@ -109,7 +109,21 @@ class StudentViewModel {
             
         })
     }
-    
+    func getStudunetAll() {
+        StudentManager.shared.getAllStudent(complete: {[weak self]data, error in
+            
+            if let error = error {
+             print(error)
+            }else {
+                if let data = data {
+                    self?.studentData.onNext(data)
+                }
+            }
+
+            
+            
+        })
+    }
     
 }
 

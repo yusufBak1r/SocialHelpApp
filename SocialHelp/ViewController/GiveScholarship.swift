@@ -10,9 +10,10 @@ import RxSwift
 import RxCocoa
 
 class GiveScholarship: UIViewController {
- let fetch = StudentViewModel()
+ 
     let disposedBag = DisposeBag()
-
+    
+    let fetch = StudentViewModel()
     @IBOutlet var dateScholarshipe: UIDatePicker!
     @IBOutlet var statment: UITextView!
     @IBOutlet var amount: UITextField!

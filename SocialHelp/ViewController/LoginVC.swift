@@ -9,9 +9,9 @@ import UIKit
 import RxSwift
 
 class ViewController: UIViewController {
-   
-
-    let fetchStudent =  StudentManager()
+    
+    
+    let fetch =  UserViewModel()
     let disposeBag = DisposeBag()
     @IBOutlet weak var PswrdTextfiled: UITextField!
     @IBOutlet weak var mailTextfiled: UITextField!
@@ -23,36 +23,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         PswrdTextfiled.isSecureTextEntry = true
         
-//        fetch.error.observe(on: MainScheduler.asyncInstance).subscribe({ error in
-//            let message =  self.addAlert(title: "UYARI", message: error.element!)
-//            self.present(message, animated: true, completion: nil)
-//        }).disposed(by: disposeBag)
-//        
-         setBackgroundImage(imageName: "back.jpeg")
+        binding()
+        
+        setBackgroundImage(imageName: "back.jpeg")
     }
     
     @IBAction func loginButtom(_ sender: Any) {
         
         if mailTextfiled.text != "" && PswrdTextfiled.text != "" {
-        
             
-//            if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
-//                fetch.userLogin(email: email, password: password)
-////             viewModel gelen login cevabı burda alert mesajı ile işliyorum
-//                fetch.login.observe(on: MainScheduler.asyncInstance).subscribe  { [self]answer in
-//                    if  answer.element?.success == true {
-//                        self.performSegue(withIdentifier: "toHome", sender: nil)
-//                        
-//                    }else{
-//                        let message =  self.addAlert(title: "UYARI", message: "\(String(describing: answer.element!.message))")
-//                        self.present(message, animated: true, completion: nil)
-//                        self.mailTextfiled.text = ""
-//                        PswrdTextfiled.text = ""
-//                        
-//                    }
-//                    
-//                }.disposed(by: disposeBag)
-//            }
+            
+                        if let email = mailTextfiled.text ,let password = PswrdTextfiled.text {
+                            fetch.loginPerson(email: email, password: password)
+            //             viewModel gelen login cevabı burda alert mesajı ile işliyorum
+                            fetch.login.observe(on: MainScheduler.asyncInstance).subscribe  { [self]answer in
+                                if  answer.element?.success == true {
+                                self.performSegue(withIdentifier: "toHome", sender: nil)
+            
+                                }else{
+                                    let message =  self.addAlert(title: "UYARI", message: "\(String(describing: answer.element!.message))")
+                                    self.present(message, animated: true, completion: nil)
+                                    self.mailTextfiled.text = ""
+                                    PswrdTextfiled.text = ""
+            
+                                }
+            
+                            }.disposed(by: disposeBag)
+                        }
             
         }
         else {
@@ -62,7 +59,7 @@ class ViewController: UIViewController {
             PswrdTextfiled.text = ""
         }
         
-       
+        
         
     }
     
@@ -70,16 +67,24 @@ class ViewController: UIViewController {
         
         if (sender as AnyObject).selectedSegmentIndex == 0 {
             print ("ilk segmented açıldı ")
-    }
+        }
         if (sender as AnyObject).selectedSegmentIndex == 1 {
-         print("ikinci segment açıldı ")
-           
+            print("ikinci segment açıldı ")
+            
             performSegue(withIdentifier: "toSignin", sender: nil)
-           
-        
+            
+            
         }
         
         
         
+    }
+    func binding() {
+        fetch.login.observe(on: MainScheduler.asyncInstance).subscribe({[self]answer in
+            if  answer.element?.success == true {
+                let message =  self.addAlert(title: "UYARI", message:(answer.element?.message)!)
+                self.present(message, animated: true, completion: nil)
+            }
+        })
     }
 }

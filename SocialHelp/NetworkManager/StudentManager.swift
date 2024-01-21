@@ -12,10 +12,14 @@ import RxCocoa
 
 protocol StudentManagerProtocol {
     
-    func getAllStudent( complete: @escaping((StudentAnswer?, Error?)->()))
+    func getAllStudent(complete: @escaping((StudentAnswer?, Error?)->()))
+    
     func StudentSignUP (student:Student,parametters:[String:Any]?,complete:@escaping((StudentAnswerSignin?,Error?)->()))
+    
     func transcriptDownload(id :Int,complete:@escaping((TranskirptAnswer?,Error?)->()))
-    func transcriptLoading (base64:String,studentID:Int,term :String,complete:@escaping((Answer?,Error?)->()))
+    
+    func transcriptLoading (parametters:[String:Any]?,complete:@escaping((Answer?,Error?)->()))
+    
 func scholarshipGive (amount:Int,statement:String,date:String,personID:Int,stutentID:Int,sholarShipeName:String,complete:@escaping((Answer?,Error?)->()))
     
 }
@@ -38,12 +42,8 @@ class StudentManager{
         })
         
     }
-    
-    
-
     func getAllStudent (complete: @escaping((StudentAnswer?, Error?)->())) {
         networkign.makeGetRequest(url: Constants.EnPointURL.studentGetAll.rawValue, responseType: StudentAnswer.self, completion: {response in
-            
             
             switch response {
             case .success(let data):
@@ -58,14 +58,9 @@ class StudentManager{
     }
     
     
-    func transcriptLoading (base64:String,studentID:Int,term :String,complete:@escaping((Answer?,Error?)->())) {
-       
-        let params :[String:Any] = [
-            "student":[
-                "id":studentID],
-            "term":term,
-            "transcriptPdf":base64]
-        self.networkign.makeBodyRequest(url: Constants.EnPointURL.Transkriptadd.rawValue, method: "POST", responseType: Answer.self, parameters: params, completion: { response in
+    func transcriptLoading (parametters:[String:Any]?,complete:@escaping((Answer?,Error?)->())) {
+  
+        self.networkign.makeBodyRequest(url: Constants.EnPointURL.Transkriptadd.rawValue, method: "POST", responseType: Answer.self, parameters: parametters, completion: { response in
             switch response {
             case .success(let data):
                 complete(data, nil)
@@ -73,8 +68,6 @@ class StudentManager{
                 complete(nil, error)
 
             }
-
-
         })
 
     }

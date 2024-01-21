@@ -14,11 +14,11 @@ class StudentList: UIViewController {
   
     var  cellRowatName = ""
     var selectedID = 0
-     let viewModel = StudentManager()
+     let viewModel = StudentViewModel()
     var listStdent: [Datum] = []
     var filteredArr : [Datum] = []
     var searching:Bool?
-    
+    let disposeBag = DisposeBag()
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableViewCell: UITableView!
     override func viewDidLoad() {
@@ -28,24 +28,22 @@ class StudentList: UIViewController {
         tableViewCell.delegate = self
         tableViewCell.dataSource = self
         searchBar.delegate = self
-//        Delegate Deseni
-//        Bir nesnenin başka bir nesne için görevlerini gerçekleştirmesine olanak tanır.
-        
-        
-//        studentList()
+ 
+       studentList()
                  
     }
-//    func studentList () {
-//        viewModel.studentData.observe(on: MainScheduler.asyncInstance).subscribe({ list in
-//            self.listStdent =  list.event.element?.data ?? []
-//            self.tableViewCell.reloadData()
-//            print("tüm öğrneciler getiridi \(self.listStdent.count)")
-//            
-//            
-//            
-//        })
-//        
-//    }
+    func studentList () {
+        viewModel.getStudunetAll()
+        viewModel.studentData.observe(on: MainScheduler.asyncInstance).subscribe({ list in
+            self.listStdent =  list.event.element?.data ?? []
+            self.tableViewCell.reloadData()
+            print("tüm öğrneciler getiridi \(self.listStdent.count)")
+            
+            
+            
+        }).disposed(by: disposeBag)
+        
+    }
 
    
 

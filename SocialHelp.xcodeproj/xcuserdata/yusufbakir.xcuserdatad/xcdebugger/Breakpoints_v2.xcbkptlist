@@ -7,17 +7,180 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "82ABBFB1-B6F4-4978-A98A-8FAD48661DD4"
+            uuid = "08CE9D72-258E-435D-8614-8A8F2A147489"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SocialHelp/ViewController/LoginVC.swift"
+            filePath = "SocialHelp/ViewController/SignI&#x307;nVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "ViewController"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SigninVC"
             landmarkType = "3">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - 4f107538a23f27aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.fetch.getter : SocialHelp.UserViewModel"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - 7ba306e5a978a3e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.fetch.setter : SocialHelp.UserViewModel"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - 13a440096101d019"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.fetch.modify : SocialHelp.UserViewModel"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - 38a1ff1fc127a3a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.fetch.modify : SocialHelp.UserViewModel with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - db7f1a7c63e21193"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; SocialHelp.SigninVC"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "08CE9D72-258E-435D-8614-8A8F2A147489 - b6a6b0a376aef19c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SocialHelp.SigninVC&gt;"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEBFB2D1-C7BF-43C9-B671-918B32E5BC8E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SocialHelp/ViewController/SignI&#x307;nVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "SigninVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "FEBFB2D1-C7BF-43C9-B671-918B32E5BC8E - 37959f361de571c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.disposeBag.getter : RxSwift.DisposeBag"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "FEBFB2D1-C7BF-43C9-B671-918B32E5BC8E - db7f1a7c63e211b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; SocialHelp.SigninVC"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "FEBFB2D1-C7BF-43C9-B671-918B32E5BC8E - b6a6b0a376aef1bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SocialHelp.SigninVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SocialHelp.SigninVC&gt;"
+                  moduleName = "SocialHelp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yusufbakir/Desktop/SocialHelpApp/SocialHelp/ViewController/SignI%CC%87nVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
