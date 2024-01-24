@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         PswrdTextfiled.isSecureTextEntry = true
         
-        binding()
+ 
         
         setBackgroundImage(imageName: "back.jpeg")
     }
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                                 self.performSegue(withIdentifier: "toHome", sender: nil)
             
                                 }else{
-                                    let message =  self.addAlert(title: "UYARI", message: "\(String(describing: answer.element!.message))")
+                                    let message =  self.addAlert(title: "UYARI", message: answer.element!.message ?? "")
                                     self.present(message, animated: true, completion: nil)
                                     self.mailTextfiled.text = ""
                                     PswrdTextfiled.text = ""
@@ -79,12 +79,6 @@ class ViewController: UIViewController {
         
         
     }
-    func binding() {
-        fetch.login.observe(on: MainScheduler.asyncInstance).subscribe({[self]answer in
-            if  answer.element?.success == true {
-                let message =  self.addAlert(title: "UYARI", message:(answer.element?.message)!)
-                self.present(message, animated: true, completion: nil)
-            }
-        })
-    }
+    
+    
 }

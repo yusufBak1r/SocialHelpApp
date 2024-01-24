@@ -10,15 +10,15 @@ import Alamofire
 
 protocol NetworkingAPI {
     
-    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]?, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void)
-     func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void)
+    func makeRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]?, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void)
+    
 }
 class APIwebService:NetworkingAPI {
 
     
     
     static let shared = APIwebService()
-    func makeBodyRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]? , completion: @escaping (Result<T,Constants.ErrorTypes>) -> Void) {
+    func makeRequest<T: Codable>(url: String, method: String,responseType: T.Type, parameters: [String: Any]? , completion: @escaping (Result<T,Constants.ErrorTypes>) -> Void) {
         
         guard let urlString = URL(string: url) else {return}
         completion(.failure(.invalidURL))
@@ -47,67 +47,14 @@ class APIwebService:NetworkingAPI {
                    
                 }
               
-            case .failure(let error):
+            case .failure(_):
             completion(.failure(.generalError))
                 
                 
             }
             
-            
-        }
-       
-
-    }
-    
-    func makeGetRequest<T: Codable>(url: String, responseType: T.Type, completion: @escaping (Result<T, Constants.ErrorTypes>) -> Void) {
-        
-        guard let urlString = URL(string: url) else {completion(.failure(.invalidURL))
-            return}
-        
-        
-        AF.request(urlString, method:HTTPMethod(rawValue: "GET")).responseJSON{ response in
-            debugPrint(response)
-            switch response.result {
-            
-            case .success(let data):
-                do {
-                    
-                    let jsonData = try JSONSerialization.data(withJSONObject: data)
-                    
-                    let decoder = JSONDecoder()
-                    let responseObject = try? decoder.decode(T.self, from: jsonData)
-                    if let cevap = responseObject {
-                        completion(.success(cevap))
-                    }
-                    
-                    
-                } catch {
-                    
-                    completion(.failure(.invalidData))
-                 
-                }
-            case .failure(let error):
-                
-                completion(.failure(.generalError))
-               
-                
-            }
         }
     }
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     }

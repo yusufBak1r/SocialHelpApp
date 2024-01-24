@@ -8,13 +8,12 @@
 import Foundation
 class TranskriptModel {
 //    Post --- Get --
-    let id : Int = 0
-    var student : Student?
+    var studentID : Int?
     let term : String
     let trancriptPdf:String
 
-    init(student: Student, term: String, trancriptPdf: String, person: Person) {
-        self.student = student
+    init(student: Int, term: String, trancriptPdf: String) {
+        self.studentID = student
         self.term = term
         self.trancriptPdf = trancriptPdf
     

@@ -6,10 +6,10 @@
 //
 
 import Foundation
-struct StudentAnswerSignin :Codable{
+struct StudentAnswer :Codable{
     let success: Bool
     let message: String
-    let data: DatumStudent
+    let data: DatumStudent?
     init(success: Bool, message: String, data: DatumStudent) {
         self.success = success
         self.message = message

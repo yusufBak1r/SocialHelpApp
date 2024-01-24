@@ -11,12 +11,12 @@ import RxCocoa
 class StudentList: UIViewController {
     
    
-  
+    var studentData = Student?.self
     var  cellRowatName = ""
     var selectedID = 0
      let viewModel = StudentViewModel()
-    var listStdent: [Datum] = []
-    var filteredArr : [Datum] = []
+    var listStdent: [DatumStudent] = []
+    var filteredArr : [DatumStudent] = []
     var searching:Bool?
     let disposeBag = DisposeBag()
     @IBOutlet var searchBar: UISearchBar!

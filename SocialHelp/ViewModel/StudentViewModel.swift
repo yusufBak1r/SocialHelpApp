@@ -11,8 +11,8 @@ import RxCocoa
 class StudentViewModel {
     static let shared = StudentViewModel()
     
-    let studentData : PublishSubject<StudentAnswer> = PublishSubject()
-    let studentSignUp : PublishSubject<StudentAnswerSignin> = PublishSubject()
+    let studentData : PublishSubject<StudentAnswerAll> = PublishSubject()
+    let studentSignUp : PublishSubject<StudentAnswer> = PublishSubject()
     let transcriptFetch : PublishSubject<Answer> = PublishSubject()
     let trancsriptGet: PublishSubject<TranskirptAnswer> = PublishSubject()
     let scholarShipe :PublishSubject<Answer> = PublishSubject()
@@ -20,11 +20,11 @@ class StudentViewModel {
     
     
     func gettStudent() {
-        StudentManager.shared.getAllStudent(complete: {[weak self]data,error  in
+        StudentManager.shared.getAllStudent(complete: {data,error  in
             if let error = error {
                 print(error)
             }else {
-                self?.studentData.onNext(data!)
+                self.studentData.onNext(data!)
             }
     
         })
@@ -44,14 +44,15 @@ class StudentViewModel {
             "identityNumber": student.identityNumber,
             "hasTranskript": student.hasTranskript,
             "scholarship": student.schorlarship]
-        StudentManager.shared.StudentSignUP(parametters: parametters, student: student) { [weak self]data, error in
+        print(parametters)
+        StudentManager.shared.StudentSignUP(parametters: parametters, student: student) { data, error in
            
             if let error = error {
               print(error)
                 
             }else {
                 if let data = data {
-                    self!.studentSignUp.onNext(data)
+                    self.studentSignUp.onNext(data)
                 }
             }
 
@@ -75,48 +76,46 @@ class StudentViewModel {
         
     }
     func scholarShipe(scholarshipGive :Scholarship){
-        StudentManager.shared.scholarshipGive(amount: scholarshipGive.amount, statement:scholarshipGive.description, date: scholarshipGive.applicationDate, personID: scholarshipGive.person.id, stutentID: scholarshipGive.student.id, sholarShipeName: scholarshipGive.name, complete: { [weak self]data, error in
+        StudentManager.shared.scholarshipGive(amount: scholarshipGive.amount, statement:scholarshipGive.description, date: scholarshipGive.applicationDate, personID: scholarshipGive.person.id, stutentID: scholarshipGive.student.id, sholarShipeName: scholarshipGive.name, complete: { data, error in
             if let error = error {
              print(error)
             }else {
                 if let data = data {
-                    self?.scholarShipe.onNext(data)
+                    self.scholarShipe.onNext(data)
                 }
             }
 
             
         })
     }
-    func transcript(transcript:TranskriptModel) {
+    func transcriptLoding(transcript:TranskriptModel) {
         let params :[String:Any] = [
             "student":[
-                "id":transcript.id],
+                "id":transcript.studentID],
             "term":transcript.term,
             "transcriptPdf":transcript.trancriptPdf]
-        StudentManager.shared.transcriptLoading(parametters: params, complete: {[weak self]data, error in
+        StudentManager.shared.transcriptLoading(parametters: params, complete: {data, error in
             if let error = error {
-             print(error)
+            
             }else {
                 if let data = data {
-                    self?.transcriptFetch.onNext(data)
+                    self.transcriptFetch.onNext(data)
                 }
             }
-
-            
-            
+       
             
             
             
         })
     }
     func getStudunetAll() {
-        StudentManager.shared.getAllStudent(complete: {[weak self]data, error in
+        StudentManager.shared.getAllStudent(complete: {data, error in
             
             if let error = error {
              print(error)
             }else {
                 if let data = data {
-                    self?.studentData.onNext(data)
+                    self.studentData.onNext(data)
                 }
             }
 

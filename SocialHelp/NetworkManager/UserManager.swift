@@ -11,7 +11,7 @@ import RxCocoa
 import Alamofire
 protocol UserManagerProtocol {
     func userSigin (parameters:[String:Any]?,complete: @escaping((PersonAnswer?, Error?)->()))
-    func userLogin (email:String,password:String,complete: @escaping((Answer?, Error?)->()))
+    func userLogin (email:String,password:String,complete: @escaping((PersonAnswer?, Error?)->()))
 }
 
 class UserManager:UserManagerProtocol {
@@ -21,7 +21,7 @@ class UserManager:UserManagerProtocol {
     
     func userSigin (parameters:[String:Any]?,complete: @escaping((PersonAnswer?, Error?)->())) {
        
-        service.makeBodyRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method:"POST", responseType: PersonAnswer.self, parameters: parameters, completion: {response in
+        service.makeRequest(url: Constants.EnPointURL.signUpPerson.rawValue, method:"POST", responseType: PersonAnswer.self, parameters: parameters, completion: {response in
             switch response {
             case .success(let data):
                 complete(data, nil)
@@ -33,25 +33,23 @@ class UserManager:UserManagerProtocol {
         })
                 
     }
-    func userLogin (email:String,password:String,complete: @escaping((Answer?, Error?)->()))  {
     
-        service.makeGetRequest(url:"http://localhost:8090/api/person/login?email=\(email)&password=\(password)" , responseType: Answer?.self, completion: {response in
+    func userLogin (email:String,password:String,complete: @escaping((PersonAnswer?, Error?)->()))  {
+    
+        service.makeRequest(url:  "http://localhost:8090/api/person/login?email=\(email)&password=\(password)", method: "GET", responseType: PersonAnswer.self, parameters: nil, completion: { response in
             switch response {
             case .success(let data):
                 complete(data, nil)
             case .failure(let error):
                 complete(nil,error)
-                
-                
-            
             }
             
         })
-       
       
     }
    
     
 }
 
- 
+        
+                

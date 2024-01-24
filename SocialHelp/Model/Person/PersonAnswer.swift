@@ -9,8 +9,27 @@ import Foundation
 struct PersonAnswer :Codable{
     let success: Bool
     let message: String
-        
+    let data:PersonDataClass?
     }
+
+struct PersonDataClass: Codable {
+    let id: Int
+    let email, phone, password, name: String
+    let surname: String
+    let birthOfDateYear: Int
+    let identityNumber, job: String?
+    init(id: Int, email: String, phone: String, password: String, name: String, surname: String, birthOfDateYear: Int, identityNumber: String, job: String) {
+        self.id = id
+        self.email = email
+        self.phone = phone
+        self.password = password
+        self.name = name
+        self.surname = surname
+        self.birthOfDateYear = birthOfDateYear
+        self.identityNumber = identityNumber
+        self.job = job
+    }
+}
 
     // MARK: - Encode/decode helpers
 
@@ -41,20 +60,3 @@ struct PersonAnswer :Codable{
 //
 
 
-
-
-//{
-//    data =     {
-//        birthOfDateYear = 5645;
-//        email = fdsfdfd;
-//        id = 70;
-//        identityNumber = 0;
-//        job = dsfsdf;
-//        name = fdsfd;
-//        password = 11111111111;
-//        phone = 11111111111;
-//        surname = fdsfds;
-//    };
-//    message = eklendi;
-//    success = 1;
-//}

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 class UserViewModel {
-    let  login : PublishSubject<Answer> = PublishSubject()
+    let  login : PublishSubject<PersonAnswer> = PublishSubject()
     let  signUp : PublishSubject<PersonAnswer> = PublishSubject()
     
     func userSinginUp(signinPerson:Person) {
@@ -22,25 +22,25 @@ class UserViewModel {
             "birthOfDateYear": signinPerson.birthOfYear,
             "identityNumber": signinPerson.identityNumber,
             "job": signinPerson.job]
-        UserManager.shared.userSigin(parameters: parameters, complete: {[weak self]data,error  in
+        UserManager.shared.userSigin(parameters: parameters, complete: {data,error  in
             
             if let error = error {
                 print(error)
             }else {
-                self?.signUp.onNext(data!)
+                self.signUp.onNext(data!)
             }
             
             
         })
     }
     func loginPerson (email:String,password:String){
-        UserManager.shared.userLogin(email: email, password: password, complete: {[weak self]data,error  in
+        UserManager.shared.userLogin(email: email, password: password, complete: {data,error  in
             if let error = error {
                 print(error)
                 
             }else {
             
-                self?.login.onNext(data!)
+                self.login.onNext(data!)
             }
             
             

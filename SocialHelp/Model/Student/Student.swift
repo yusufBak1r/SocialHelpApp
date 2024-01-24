@@ -26,6 +26,7 @@ class Student:User{
         self.schorlarship = schorlarship
         super.init(email: email, phone: phone, password: password)
     }
- 
+    
+   
     
 }

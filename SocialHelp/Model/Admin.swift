@@ -16,5 +16,9 @@ class Admin:User {
         super.init(email: email, phone: phone, password: password)
     }
     
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+    
    
 }

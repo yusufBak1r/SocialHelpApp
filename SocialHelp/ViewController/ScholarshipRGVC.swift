@@ -13,7 +13,7 @@ class ScholarshipRegistration: UIViewController {
     let disposeBag = DisposeBag()
     let fetch = StudentViewModel()
     
-    var studntModel :StudentAnswerSignin?
+    var studntModel :StudentAnswer?
     var transcriptString:String = ""
     @IBOutlet var studentEmail: UITextField!
       
@@ -33,7 +33,8 @@ class ScholarshipRegistration: UIViewController {
         aboutME.layer.cornerRadius = 20
         View3.layer.cornerRadius = 15
         studentPassword.isSecureTextEntry = true
-
+        binding()
+        transcriptBinding()
        
        
     }
@@ -44,10 +45,10 @@ class ScholarshipRegistration: UIViewController {
          
             
             
-            let studentSignUp = Student(name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false, email: studentEmail.text!,  phone: studentPassword.text!, password: "00000000000")
+            let studentSignUp = Student(name: studentName.text!, surname: studentLastName.text!, birthOfDateYear: Int(DateOfBirth.text!) ?? 00000, identityNumber: "", hasTranskript: false, schorlarship: false, email: studentEmail.text!,  phone: "00000000000", password: studentPassword.text!)
             
 
-            binding()
+           
             fetch.studentSignin(student: studentSignUp)
            
             
@@ -60,32 +61,44 @@ class ScholarshipRegistration: UIViewController {
        
 
     }
-    
+    func transcriptBinding () {
+        fetch.transcriptFetch.observe(on: MainScheduler.asyncInstance).subscribe({ answer in
+            if answer.element?.success == true {
+                let messageAllert = self.addAlert(title: "UYARI", message: answer.element!.message ?? "" )
+                self.present(messageAllert, animated: true, completion: nil)
+                self.aboutME.text = ""
+            }else{
+                let messageAllert = self.addAlert(title: "UYARI", message: answer.element!.message ?? "" )
+                self.present(messageAllert, animated: true, completion: nil)
+            }
+            
+        })
+    }
     func binding() {
         
         
-//        fetch.studentSignUp.observe(on: MainScheduler.asyncInstance).subscribe{ answer in
-//            
-//            if answer.success == true {
-//                self.studntModel = answer
-//               
-//                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message )
-//                self.present(messageSignAllert, animated: true, completion: nil)
-//                self.studentPassword.text = ""
-//                self.DateOfBirth.text = ""
-//                self.studentLastName.text = ""
-//                self.studentName.text = ""
-//                self.studentEmail.text = ""
-//                
-//            
-//                  
-//            }else if answer.success == false  {
-//               
-//                let messageAllert = self.addAlert(title: "UYARI", message: answer.message )
-//                self.present(messageAllert, animated: true, completion: nil)
-//            }
-//            
-//        }.disposed(by: disposeBag)
+        fetch.studentSignUp.observe(on: MainScheduler.asyncInstance).subscribe{ answer in
+            
+            if answer.success == true {
+                self.studntModel = answer
+               
+                let messageSignAllert = self.addAlert(title: "UYARI", message:answer.message )
+                self.present(messageSignAllert, animated: true, completion: nil)
+                self.studentPassword.text = ""
+                self.DateOfBirth.text = ""
+                self.studentLastName.text = ""
+                self.studentName.text = ""
+                self.studentEmail.text = ""
+                
+            
+                  
+            }else if answer.success == false  {
+               
+                let messageAllert = self.addAlert(title: "UYARI", message: answer.message )
+                self.present(messageAllert, animated: true, completion: nil)
+            }
+            
+        }.disposed(by: disposeBag)
         
         
         
@@ -98,14 +111,16 @@ class ScholarshipRegistration: UIViewController {
     }
     
     @IBAction func scholarshipComplete(_ sender: Any) {
-        if  aboutME.text != "" {
-           
-//            fetch.transcriptLoading(base64: transcriptString, studentID: studntModel?.data.id ?? 0 , term: aboutME.text)
+        if  aboutME.text != "" && studntModel?.data?.id != nil {
+         
+            let  lodingTranskript = TranskriptModel(student: studntModel?.data?.id ?? 0, term: aboutME.text!, trancriptPdf: transcriptString)
+         
+            fetch.transcriptLoding(transcript: lodingTranskript)
             
             
             
         }else {
-            let messageAllert = self.addAlert(title: "UYARI", message:"Lütfen kendininzden biraz Bahsedin" )
+            let messageAllert = self.addAlert(title: "UYARI", message:"Lütfen kendininzden biraz Bahsedin,veya Öğrenci kayıt işlemini tamamlayın" )
             self.present(messageAllert, animated: true, completion: nil)
         }
         

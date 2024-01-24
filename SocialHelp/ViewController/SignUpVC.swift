@@ -18,9 +18,6 @@ class SigninVC: UIViewController {
    var fetch = UserViewModel()
     let disposeBag = DisposeBag()
     
-   
-    
-
     
     @IBOutlet var personName: UITextField!
     
